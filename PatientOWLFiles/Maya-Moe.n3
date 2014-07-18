@@ -1,0 +1,192 @@
+@prefix xsd:     <http://www.w3.org/2001/XMLSchema#> .
+@prefix xsp:     <http://www.owl-ontologies.com/2005/08/07/xsp.owl#> .
+@prefix swrl:    <http://www.w3.org/2003/11/swrl#> .
+@prefix default:  <http://www.owl-ontologies.com/Ontology1183162121.owl#> .
+@prefix swrlb:   <http://www.w3.org/2003/11/swrlb#> .
+@prefix protege:  <http://protege.stanford.edu/plugins/owl/protege#> .
+@prefix rdfs:    <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix rdf:     <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix owl:     <http://www.w3.org/2002/07/owl#> .
+
+default:abdominal-pain
+      a       default:Symptoms ;
+      default:symp-name "Abdominal-Pain" .
+
+default:disease-name
+      a       owl:DatatypeProperty ;
+      rdfs:domain default:Disease ;
+      rdfs:range xsd:string .
+
+default:cold-flu
+      a       default:Classification ;
+      default:class-name "Cold-Flu" .
+
+default:skin
+      a       owl:Thing .
+
+default:tylenol
+      a       default:Medication ;
+      default:med-name "Tylenol" .
+
+default:fever
+      a       default:Symptoms ;
+      default:symp-name "fever" .
+
+default:patient-name
+      a       owl:DatatypeProperty ;
+      rdfs:domain default:Patient ;
+      rdfs:range xsd:string .
+
+default:acyclovir
+      a       default:Medication ;
+      default:med-name "Acylovir" .
+
+<file:/C:/Documents%20and%20Settings/hpadmin/Desktop/PatientOWLFiles/Maya-Moe.owl>
+      a       owl:Ontology .
+
+default:class-name
+      a       owl:DatatypeProperty ;
+      rdfs:domain default:Classification ;
+      rdfs:range xsd:string .
+
+default:itchy-skin
+      a       default:Symptoms ;
+      default:symp-name "itchy skin" .
+
+default:constipation
+      a       default:Disease ;
+      default:classification
+              default:digestion ;
+      default:disease default:constipation ;
+      default:disease-name
+              "Constipation" ;
+      default:medication default:softner-stool ;
+      default:patient-name
+              "Maya Moe" ;
+      default:patinet-id "014" ;
+      default:symptoms default:abdominal-pain , default:hard-stool .
+
+default:disease
+      a       owl:ObjectProperty .
+
+default:Medication
+      a       owl:Class .
+
+default:hard-stool
+      a       default:Symptoms ;
+      default:symp-name "hard stool" .
+
+default:chicken-pox
+      a       default:Disease ;
+      default:classification
+              default:skin ;
+      default:disease default:chicken-pox ;
+      default:disease-name
+              "Chiken Pox" ;
+      default:med-name "Acyclovir" ;
+      default:medication default:tylenol , default:acyclovir ;
+      default:patient-name
+              "Maya Moe" ;
+      default:patinet-id "014" ;
+      default:symptoms default:itchy-skin , default:fever , default:red-spot , default:general-weakness .
+
+default:classification
+      a       owl:ObjectProperty .
+
+default:red-spot
+      a       default:Symptoms ;
+      default:symp-name "red spot " .
+
+default:eye-sight
+      a       default:Classification ;
+      default:class-name "Eye-Sight" .
+
+default:patient
+      a       owl:ObjectProperty .
+
+default:Patient
+      a       owl:Class .
+
+default:symp-name
+      a       owl:DatatypeProperty ;
+      rdfs:domain default:Symptoms ;
+      rdfs:range xsd:string .
+
+default:lung
+      a       default:Classification ;
+      default:class-name "Lung" .
+
+default:patinet-id
+      a       owl:DatatypeProperty ;
+      rdfs:domain default:Patient ;
+      rdfs:range xsd:int .
+
+default:Classification
+      a       owl:Class ;
+      owl:equivalentClass
+              [ a       owl:Class ;
+                owl:oneOf (default:digestion default:lung default:eye-sight default:cold-flu default:skin)
+              ] .
+
+default:medication
+      a       owl:ObjectProperty .
+
+default:red-eyes
+      a       default:Symptoms ;
+      default:symp-name "red name" .
+
+default:Symptoms
+      a       owl:Class .
+
+default:med-name
+      a       owl:DatatypeProperty ;
+      rdfs:domain default:Medication ;
+      rdfs:range xsd:string .
+
+default:symptoms
+      a       owl:ObjectProperty .
+
+default:Disease
+      a       owl:Class ;
+      rdfs:subClassOf owl:Thing ;
+      rdfs:subClassOf
+              [ a       owl:Restriction ;
+                owl:allValuesFrom default:Patient ;
+                owl:onProperty default:patient
+              ] ;
+      rdfs:subClassOf
+              [ a       owl:Restriction ;
+                owl:allValuesFrom default:Disease ;
+                owl:onProperty default:disease
+              ] ;
+      rdfs:subClassOf
+              [ a       owl:Restriction ;
+                owl:allValuesFrom default:Medication ;
+                owl:onProperty default:medication
+              ] ;
+      rdfs:subClassOf
+              [ a       owl:Restriction ;
+                owl:allValuesFrom default:Classification ;
+                owl:onProperty default:classification
+              ] ;
+      rdfs:subClassOf
+              [ a       owl:Restriction ;
+                owl:allValuesFrom default:Symptoms ;
+                owl:onProperty default:symptoms
+              ] .
+
+default:swelling-skin
+      a       default:Symptoms ;
+      default:symp-name "swelling skin " .
+
+default:softner-stool
+      a       default:Medication ;
+      default:med-name "Softener-Stool" .
+
+default:digestion
+      a       default:Classification ;
+      default:class-name "Digestion" .
+
+default:general-weakness
+      a       default:Symptoms ;
+      default:symp-name "general-weakness" .

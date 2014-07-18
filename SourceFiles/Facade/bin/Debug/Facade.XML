@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Facade</name>
+    </assembly>
+    <members>
+        <member name="M:Facade.DoctorFacade.GetDoctor(System.String)">
+            <summary>
+            Get a specific customer.
+            Uses the Proxy Design Pattern.
+            </summary>
+            <param name="customerId">Unique customer identifier.</param>
+            <returns>Requested customer.</returns>
+        </member>
+        <member name="M:Facade.DoctorFacade.AddDoctor(DoFactory.BusinessLayer.BusinessObjects.Doctor)">
+            <summary>
+            Adds a new customer
+            Uses the Decorator Design Pattern.
+            </summary>
+            <param name="customer">New Customer.</param>
+        </member>
+        <member name="M:Facade.PatientFacade.GetPatients">
+            <summary>
+            Gets a list of customers.
+            </summary>
+            <returns>List of Customers.</returns>
+        </member>
+        <member name="M:Facade.PatientFacade.GetPatients(System.String)">
+            <summary>
+            Gets a list of customers in a given sort order.
+            </summary>
+            <param name="sortExpression">Sort order of the list</param>
+            <returns>Sorted list of customers.</returns>
+        </member>
+    </members>
+</doc>

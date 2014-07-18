@@ -1,0 +1,485 @@
+@prefix rdfs:    <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix swrl:    <http://www.w3.org/2003/11/swrl#> .
+@prefix protege:  <http://protege.stanford.edu/plugins/owl/protege#> .
+@prefix default:  <http://www.owl-ontologies.com/Ontology1183162121.owl#> .
+@prefix xsp:     <http://www.owl-ontologies.com/2005/08/07/xsp.owl#> .
+@prefix swrlb:   <http://www.w3.org/2003/11/swrlb#> .
+@prefix xsd:     <http://www.w3.org/2001/XMLSchema#> .
+@prefix owl:     <http://www.w3.org/2002/07/owl#> .
+@prefix rdf:     <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+
+default:eye-pain
+      a       default:Symptoms ;
+      default:symp-name "eye-pain" .
+
+default:sore-throught
+      a       default:Symptoms ;
+      default:symp-name "sore throught " .
+
+default:headache
+      a       default:Symptoms ;
+      default:symp-name "headache" .
+
+default:itchy-eyes
+      a       default:Symptoms ;
+      default:symp-name "itechy eye" .
+
+default:Symptoms
+      a       owl:Class .
+
+default:cepacol
+      a       default:Medication ;
+      default:med-name "Cepacol" .
+
+default:vomiting
+      a       default:Symptoms ;
+      default:symp-name "vomiting " .
+
+default:appendix
+      a       default:Disease ;
+      default:classification
+              default:digestion ;
+      default:disease default:appendix ;
+      default:disease-name
+              "Appendix" ;
+      default:medication default:tylenol , default:augmantine ;
+      default:symp-name "Abdominal-Pain" ;
+      default:symptoms default:abdominal-pain , default:fever , default:vomiting .
+
+default:night-sweat
+      a       default:Symptoms ;
+      default:symp-name "night sweat" .
+
+default:general-weakness
+      a       default:Symptoms ;
+      default:symp-name "general-weakness" .
+
+default:tylenol
+      a       default:Medication ;
+      default:med-name "Tylenol" .
+
+default:runny-nose
+      a       default:Symptoms ;
+      default:symp-name "runny nose" .
+
+default:alavert
+      a       default:Medication ;
+      default:med-name "Alavert" .
+
+default:bluish-lip
+      a       default:Symptoms ;
+      default:symp-name "blusih-lip" .
+
+default:shortness-of-breath
+      a       default:Symptoms ;
+      default:symp-name "shortness of breath " .
+
+default:symptoms
+      a       owl:ObjectProperty .
+
+default:chicken-pox
+      a       default:Classification ;
+      default:class-name "Chicken-Pox" .
+
+default:fever
+      a       default:Symptoms ;
+      default:symp-name "fever" .
+
+default:constipation
+      a       default:Disease ;
+      default:classification
+              default:digestion ;
+      default:disease default:constipation ;
+      default:disease-name
+              "Constipation" ;
+      default:medication default:softner-stool ;
+      default:symptoms default:abdominal-pain , default:hard-stool .
+
+default:inflamation-of-skin
+      a       default:Symptoms ;
+      default:symp-name "inflamation-of-skin" .
+
+default:beta-adrenegic
+      a       default:Medication ;
+      default:med-name "Beta-Adrenegic" .
+
+default:acne
+      a       default:Disease ;
+      default:classification
+              default:skin ;
+      default:disease default:acne ;
+      default:disease-name
+              "Acne" ;
+      default:medication default:benzaic , default:tetracycline ;
+      default:symp-name "breakout" ;
+      default:symptoms default:breakout .
+
+default:muscle-ache
+      a       default:Symptoms ;
+      default:symp-name "muscle-ache" .
+
+<file:/C:/KLM11.owl>
+      a       owl:Ontology .
+
+default:itchy-nose
+      a       default:Symptoms ;
+      default:symp-name "itchy nose" .
+
+default:med-name
+      a       owl:DatatypeProperty ;
+      rdfs:domain default:Medication ;
+      rdfs:range xsd:string .
+
+default:pain-chest
+      a       default:Symptoms ;
+      default:symp-name "pain chest" .
+
+default:erythromycin
+      a       default:Medication ;
+      default:med-name "Erythromycin" .
+
+default:medication
+      a       owl:ObjectProperty .
+
+default:carbonic-anhydrase
+      a       default:Medication ;
+      default:med-name "Carbonic-Anhydrase" .
+
+default:digestion
+      a       default:Classification ;
+      default:class-name "Digestion" .
+
+default:cold-flu
+      a       default:Classification ;
+      default:class-name "Cold-Flu" .
+
+default:flu
+      a       default:Disease ;
+      default:classification
+              default:cold-flu ;
+      default:disease default:flu ;
+      default:disease-name
+              "Flu" ;
+      default:medication default:tylenol , default:cepacol ;
+      default:symptoms default:sore-throught , default:fever , default:fatigue , default:muscle-ache , default:cough .
+
+default:Medication
+      a       owl:Class .
+
+default:benzaic
+      a       default:Medication ;
+      default:med-name "Benzaic" .
+
+default:Classification
+      a       owl:Class ;
+      owl:equivalentClass
+              [ a       owl:Class ;
+                owl:oneOf (default:digestion default:lung default:eye-sight default:cold-flu default:skin)
+              ] .
+
+default:common-cold
+      a       default:Disease ;
+      default:classification
+              default:cold-flu ;
+      default:disease default:common-cold ;
+      default:disease-name
+              "Common-Cold" ;
+      default:medication default:codeine , default:tylenol ;
+      default:symptoms default:headache , default:cough .
+
+default:nocotine-gum
+      a       default:Medication ;
+      default:med-name "Nicotine-Gum" .
+
+default:asthma
+      a       default:Disease ;
+      default:classification
+              default:lung ;
+      default:disease default:asthma ;
+      default:disease-name
+              "Asthma" ;
+      default:medication default:qvar ;
+      default:symptoms default:shortness-of-breath , default:cough .
+
+default:benadrayal
+      a       default:Medication ;
+      default:med-name "Benadryl" .
+
+default:sulfasazine
+      a       default:Medication ;
+      default:med-name "Sulfasazine" .
+
+default:ear-infection
+      a       default:Disease ;
+      default:classification
+              default:cold-flu ;
+      default:disease default:ear-infection ;
+      default:disease-name
+              "Ear-Infection" ;
+      default:medication default:tylenol , default:amoxicillin ;
+      default:symptoms default:sore-throught , default:earache , default:fever , default:vomiting .
+
+default:pneumonia
+      a       default:Disease ;
+      default:classification
+              default:lung ;
+      default:disease default:pneumonia ;
+      default:disease-name
+              "Pneumonia" ;
+      default:medication default:erythromycin , default:tylenol ;
+      default:symptoms default:pain-chest , default:shortness-of-breath , default:fever , default:cough .
+
+default:qvar
+      a       default:Medication ;
+      default:med-name "Qvar" .
+
+default:eye-sight
+      a       default:Classification ;
+      default:class-name "Eye-Sight" .
+
+default:copd
+      a       default:Disease ;
+      default:classification
+              default:lung ;
+      default:disease default:copd ;
+      default:disease-name
+              "Copd" ;
+      default:medication default:nocotine-gum , default:beta-agonists ;
+      default:symptoms default:frequent-respiratory-infection , default:bluish-lip , default:shortness-of-breath .
+
+default:red-eyes
+      a       default:Symptoms ;
+      default:symp-name "red name" .
+
+default:sneezing
+      a       default:Symptoms ;
+      default:symp-name "sneezing " .
+
+default:tetracycline
+      a       default:Medication ;
+      default:med-name "Tetracycline" .
+
+default:symp-name
+      a       owl:DatatypeProperty ;
+      rdfs:domain default:Symptoms ;
+      rdfs:range xsd:string .
+
+default:disease
+      a       owl:ObjectProperty .
+
+default:swelling-eyes
+      a       default:Symptoms ;
+      default:symp-name "swelling-eyes"^^xsd:NCName .
+
+default:class-name
+      a       owl:DatatypeProperty ;
+      rdfs:domain default:Classification ;
+      rdfs:range xsd:string .
+
+default:fatigue
+      a       default:Symptoms ;
+      default:symp-name "fatigue" .
+
+default:beta-agonists
+      a       default:Medication ;
+      default:med-name "Beta-Agonists" .
+
+default:allergy
+      a       default:Disease ;
+      default:classification
+              default:cold-flu ;
+      default:disease default:allergy ;
+      default:disease-name
+              "Allergy" ;
+      default:medication default:codeine , default:benadrayal ;
+      default:symptoms default:watery-eyes , default:headache , default:sneezing , default:muscle-ache , default:runny-nose .
+
+default:abdominal-pain
+      a       default:Symptoms ;
+      default:symp-name "Abdominal-Pain" .
+
+default:lung
+      a       default:Classification ;
+      default:class-name "Lung" .
+
+default:rectal-bleeding
+      a       default:Symptoms ;
+      default:symp-name "rectal bleeding " .
+
+default:augmantine
+      a       default:Medication ;
+      default:med-name "Augmantine" .
+
+default:pink-eye
+      a       default:Disease ;
+      default:classification
+              default:eye-sight ;
+      default:disease default:pink-eye ;
+      default:disease-name
+              "Pink-Eye" ;
+      default:medication default:alavert ;
+      default:symptoms default:eye-pain , default:red-eyes , default:itchy-eyes , default:sneezing , default:swelling-eyes , default:itchy-nose .
+
+default:frequent-respiratory-infection
+      a       default:Symptoms ;
+      default:symp-name "frequent-respiratory-infection" .
+
+default:elavated-pressure-eyes
+      a       default:Symptoms ;
+      default:symp-name "elavated-pressure-eyes" .
+
+default:tearing
+      a       default:Symptoms ;
+      default:symp-name "tearing " .
+
+default:classification
+      a       owl:ObjectProperty .
+
+default:diarrhea
+      a       default:Symptoms ;
+      default:symp-name "diarrhea" .
+
+default:cough
+      a       default:Symptoms ;
+      default:symp-name "cough" .
+
+default:amoxicillin
+      a       default:Medication ;
+      default:med-name "Amoxicilin" .
+
+default:skin
+      a       default:Classification ;
+      default:class-name "Skin" .
+
+default:red-spot
+      a       default:Symptoms ;
+      default:symp-name "red spot " .
+
+default:crusting
+      a       default:Symptoms ;
+      default:symp-name "crusting" .
+
+default:codeine
+      a       default:Medication ;
+      default:med-name "Codeine" .
+
+default:breakout
+      a       default:Symptoms ;
+      default:symp-name "breakout" .
+
+default:swelling-skin
+      a       default:Symptoms ;
+      default:symp-name "swelling skin " .
+
+default:attapulqite
+      a       default:Medication ;
+      default:med-name "Attapulaite" .
+
+default:nausea
+      a       default:Symptoms ;
+      default:symp-name "nausea"^^xsd:NCName .
+
+default:hard-stool
+      a       default:Symptoms ;
+      default:symp-name "hard stool" .
+
+default:atopic-dermatitis
+      a       default:Disease ;
+      default:classification
+              default:skin ;
+      default:disease default:atopic-dermatitis ;
+      default:disease-name
+              "Atopic-Dermatitis" ;
+      default:medication default:hydrocortizone ;
+      default:symptoms default:crusting , default:inflamation-of-skin , default:swelling-skin , default:itchy-skin .
+
+default:earache
+      a       default:Symptoms ;
+      default:symp-name "earache" .
+
+default:acyclovir
+      a       default:Medication ;
+      default:med-name "Acyclovir" .
+
+default:weight-loss
+      a       default:Symptoms ;
+      default:symp-name "weight loss" .
+
+default:stomach-flu
+      a       default:Disease ;
+      default:classification
+              default:cold-flu ;
+      default:disease default:stomach-flu ;
+      default:disease-name
+              "" ;
+      default:medication default:attapulqite , default:tylenol ;
+      default:symptoms default:sore-throught , default:fever , default:fatigue , default:nausea , default:muscle-ache , default:diarrhea , default:cough .
+
+default:hydrocortizone
+      a       default:Medication ;
+      default:med-name "Hydrocortizine" .
+
+default:softner-stool
+      a       default:Medication ;
+      default:med-name "Softener-Stool" .
+
+default:watery-eyes
+      a       default:Symptoms ;
+      default:symp-name "watery eyes" .
+
+default:glaucoma
+      a       default:Disease ;
+      default:classification
+              default:eye-sight ;
+      default:disease default:glaucoma ;
+      default:disease-name
+              "Glaucoma" ;
+      default:medication default:carbonic-anhydrase , default:beta-agonists ;
+      default:symptoms default:eye-pain , default:elavated-pressure-eyes , default:red-eyes , default:nausea , default:vomiting .
+
+default:itchy-skin
+      a       default:Symptoms ;
+      default:symp-name "itchy skin" .
+
+default:disease-name
+      a       owl:DatatypeProperty ;
+      rdfs:domain default:Disease ;
+      rdfs:range xsd:string .
+
+default:rectal-pain
+      a       default:Symptoms ;
+      default:symp-name "rectal pain " .
+
+default:Disease
+      a       owl:Class ;
+      rdfs:subClassOf owl:Thing ;
+      rdfs:subClassOf
+              [ a       owl:Restriction ;
+                owl:allValuesFrom default:Symptoms ;
+                owl:onProperty default:symptoms
+              ] ;
+      rdfs:subClassOf
+              [ a       owl:Restriction ;
+                owl:allValuesFrom default:Medication ;
+                owl:onProperty default:medication
+              ] ;
+      rdfs:subClassOf
+              [ a       owl:Restriction ;
+                owl:allValuesFrom default:Classification ;
+                owl:onProperty default:classification
+              ] ;
+      rdfs:subClassOf
+              [ a       owl:Restriction ;
+                owl:allValuesFrom default:Disease ;
+                owl:onProperty default:disease
+              ] .
+
+default:chronic
+      a       default:Disease ;
+      default:classification
+              default:digestion ;
+      default:disease default:chronic ;
+      default:disease-name
+              "Chronic" ;
+      default:medication default:tylenol , default:sulfasazine ;
+      default:symptoms default:abdominal-pain , default:weight-loss , default:night-sweat , default:rectal-bleeding , default:rectal-pain .

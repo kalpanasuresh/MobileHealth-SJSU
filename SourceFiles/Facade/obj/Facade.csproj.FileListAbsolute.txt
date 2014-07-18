@@ -1,0 +1,28 @@
+C:\Design Patterns\Design Pattern Framework 2.0 CS\Patterns In Action\Facade\bin\Debug\Facade.dll
+C:\Design Patterns\Design Pattern Framework 2.0 CS\Patterns In Action\Facade\bin\Debug\Facade.pdb
+C:\Design Patterns\Design Pattern Framework 2.0 CS\Patterns In Action\Facade\bin\Debug\BusinessObjects.dll
+C:\Design Patterns\Design Pattern Framework 2.0 CS\Patterns In Action\Facade\bin\Debug\DataObjects.dll
+C:\Design Patterns\Design Pattern Framework 2.0 CS\Patterns In Action\Facade\bin\Debug\Transactions.dll
+C:\Design Patterns\Design Pattern Framework 2.0 CS\Patterns In Action\Facade\bin\Debug\BusinessObjects.pdb
+C:\Design Patterns\Design Pattern Framework 2.0 CS\Patterns In Action\Facade\bin\Debug\BusinessObjects.xml
+C:\Design Patterns\Design Pattern Framework 2.0 CS\Patterns In Action\Facade\bin\Debug\DataObjects.pdb
+C:\Design Patterns\Design Pattern Framework 2.0 CS\Patterns In Action\Facade\bin\Debug\DataObjects.xml
+C:\Design Patterns\Design Pattern Framework 2.0 CS\Patterns In Action\Facade\bin\Debug\Transactions.pdb
+C:\Design Patterns\Design Pattern Framework 2.0 CS\Patterns In Action\Facade\bin\Debug\Transactions.xml
+C:\Design Patterns\Design Pattern Framework 2.0 CS\Patterns In Action\Facade\obj\Debug\ResolveAssemblyReference.cache
+C:\Design Patterns\Design Pattern Framework 2.0 CS\Patterns In Action\Facade\obj\Debug\Facade.dll
+C:\Design Patterns\Design Pattern Framework 2.0 CS\Patterns In Action\Facade\obj\Debug\Facade.pdb
+C:\Patterns In Action\Facade\bin\Debug\Facade.dll
+C:\Patterns In Action\Facade\bin\Debug\Facade.pdb
+C:\Patterns In Action\Facade\bin\Debug\BusinessObjects.dll
+C:\Patterns In Action\Facade\bin\Debug\DataObjects.dll
+C:\Patterns In Action\Facade\bin\Debug\Transactions.dll
+C:\Patterns In Action\Facade\bin\Debug\BusinessObjects.pdb
+C:\Patterns In Action\Facade\bin\Debug\BusinessObjects.xml
+C:\Patterns In Action\Facade\bin\Debug\DataObjects.pdb
+C:\Patterns In Action\Facade\bin\Debug\DataObjects.xml
+C:\Patterns In Action\Facade\bin\Debug\Transactions.pdb
+C:\Patterns In Action\Facade\bin\Debug\Transactions.xml
+C:\Patterns In Action\Facade\obj\Debug\ResolveAssemblyReference.cache
+C:\Patterns In Action\Facade\obj\Debug\Facade.dll
+C:\Patterns In Action\Facade\obj\Debug\Facade.pdb

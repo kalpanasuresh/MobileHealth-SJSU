@@ -1,0 +1,199 @@
+# Base: http://www.owl-ontologies.com/Ontology1183162121.owl#
+@prefix xsd:     <http://www.w3.org/2001/XMLSchema#> .
+@prefix xsp:     <http://www.owl-ontologies.com/2005/08/07/xsp.owl#> .
+@prefix swrl:    <http://www.w3.org/2003/11/swrl#> .
+@prefix default:  <http://www.owl-ontologies.com/Ontology1183162121.owl#> .
+@prefix protege:  <http://protege.stanford.edu/plugins/owl/protege#> .
+@prefix swrlb:   <http://www.w3.org/2003/11/swrlb#> .
+@prefix rdfs:    <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix rdf:     <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix owl:     <http://www.w3.org/2002/07/owl#> .
+
+default:abdominal-pain
+      a       default:Symptoms ;
+      default:symp-name "Abdominal-Pain" .
+
+default:skin
+      a       owl:Thing .
+
+default:cold-flu
+      a       default:Classification ;
+      default:class-name "Cold-Flu" .
+
+default:disease-name
+      a       owl:DatatypeProperty ;
+      rdfs:domain default:Disease ;
+      rdfs:range xsd:string .
+
+default:sulfasazine
+      a       default:Medication ;
+      default:med-name "Sulfasazine" .
+
+default:rectal-pain
+      a       default:Symptoms ;
+      default:symp-name "rectal pain ".
+
+default:tylenol
+      a       default:Medication ;
+      default:med-name "Tylenol".
+
+default:fever
+      a       default:Symptoms ;
+      default:symp-name "fever".
+
+default:bluish-lip
+      a       default:Symptoms ;
+      default:symp-name "blusih-lip".
+
+default:copd
+      a       default:Disease ;
+      default:classification
+              default:lung ;
+      default:disease default:copd ;
+      default:disease-name
+              "Copd";
+      default:medication default:nocotine-gum , default:beta-agonists ;
+      default:patient-name
+              "Jumana Ali";
+      default:patinet-id "015";
+      default:symptoms default:frequent-respiratory-infection , default:bluish-lip , default:shortness-of-breath .
+
+default:patient-name
+      a       owl:DatatypeProperty ;
+      rdfs:domain default:Patient ;
+      rdfs:range xsd:string .
+
+default:weight-loss
+      a       default:Symptoms ;
+      default:symp-name "weight loss" .
+
+default:class-name
+      a       owl:DatatypeProperty ;
+      rdfs:domain default:Classification ;
+      rdfs:range xsd:string .
+
+default:disease
+      a       owl:ObjectProperty .
+
+default:frequent-respiratory-infection
+      a       default:Symptoms ;
+      default:symp-name "frequent-respiratory-infection".
+
+default:Medication
+      a       owl:Class .
+
+default:classification
+      a       owl:ObjectProperty .
+
+default:red-spot
+      a       default:Symptoms ;
+      default:symp-name "red spot " .
+
+default:chronic
+      a       default:Disease ;
+      default:classification
+              default:digestion ;
+      default:disease default:chronic ;
+      default:disease-name
+              "Chronic" ;
+      default:medication default:sulfasazine , default:tylenol ;
+      default:patient-name
+              "Jumans Ali";
+      default:patinet-id "015";
+      default:symptoms default:abdominal-pain , default:weight-loss , default:rectal-pain , default:night-sweat , default:rectal-bleeding .
+
+default:patient
+      a       owl:ObjectProperty .
+
+default:eye-sight
+      a       default:Classification ;
+      default:class-name "Eye-Sight" .
+
+default:symp-name
+      a       owl:DatatypeProperty ;
+      rdfs:domain default:Symptoms ;
+      rdfs:range xsd:string .
+
+default:night-sweat
+      a       default:Symptoms ;
+      default:symp-name "night sweat" .
+
+default:Patient
+      a       owl:Class .
+
+default:lung
+      a       default:Classification ;
+      default:class-name "Lung" .
+
+default:shortness-of-breath
+      a       default:Symptoms ;
+      default:symp-name "shortness of breath " .
+
+default:patinet-id
+      a       owl:DatatypeProperty ;
+      rdfs:domain default:Patient ;
+      rdfs:range xsd:int .
+
+default:Classification
+      a       owl:Class ;
+      owl:equivalentClass
+              [ a       owl:Class ;
+                owl:oneOf (default:digestion default:lung default:eye-sight default:cold-flu default:skin)
+              ] .
+
+default:medication
+      a       owl:ObjectProperty .
+
+<http://www.owl-ontologies.com/Ontology1183162121.owl>
+      a       owl:Ontology .
+
+default:med-name
+      a       owl:DatatypeProperty ;
+      rdfs:domain default:Medication ;
+      rdfs:range xsd:string .
+
+default:Symptoms
+      a       owl:Class .
+
+default:symptoms
+      a       owl:ObjectProperty .
+
+default:Disease
+      a       owl:Class ;
+      rdfs:subClassOf owl:Thing ;
+      rdfs:subClassOf
+              [ a       owl:Restriction ;
+                owl:allValuesFrom default:Medication ;
+                owl:onProperty default:medication
+              ] ;
+      rdfs:subClassOf
+              [ a       owl:Restriction ;
+                owl:allValuesFrom default:Symptoms ;
+                owl:onProperty default:symptoms
+              ] ;
+      rdfs:subClassOf
+              [ a       owl:Restriction ;
+                owl:allValuesFrom default:Classification ;
+                owl:onProperty default:classification
+              ] ;
+      rdfs:subClassOf
+              [ a       owl:Restriction ;
+                owl:allValuesFrom default:Disease ;
+                owl:onProperty default:disease
+              ] .
+
+default:beta-agonists
+      a       default:Medication ;
+      default:med-name "Beta-Agonists" .
+
+default:nocotine-gum
+      a       default:Medication ;
+      default:med-name "Nicotine-Gum" .
+
+default:rectal-bleeding
+      a       default:Symptoms ;
+      default:symp-name "rectal bleeding " .
+
+default:digestion
+      a       default:Classification ;
+      default:class-name "Digestion" .

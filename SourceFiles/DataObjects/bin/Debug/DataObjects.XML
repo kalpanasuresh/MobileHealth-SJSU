@@ -1,0 +1,455 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>DataObjects</name>
+    </assembly>
+    <members>
+        <member name="T:DoFactory.DataLayer.DataObjects.DaoFactories">
+            <summary>
+            Factory of factories. This class is a factory class that creates
+            data-base specific factories which in turn create data acces objects.
+            
+            GoF Design Patterns: Factory.
+            </summary>
+            <remarks>
+            This is the abstract factory design pattern applied in a hierarchy
+            in which there is a factory of factories.
+            </remarks>
+        </member>
+        <member name="M:DoFactory.DataLayer.DataObjects.DaoFactories.GetFactory(System.String)">
+            <summary>
+            Gets a provider specific (i.e. database specific) factory 
+            
+            GoF Design Pattern: Factory
+            </summary>
+            <param name="dataProvider">Database provider.</param>
+            <returns>Data access object factory.</returns>
+        </member>
+        <member name="M:DoFactory.DataLayer.DataObjects.IPatientDao.GetPatients">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:DoFactory.DataLayer.DataObjects.IPatientDao.GetPatients(System.String)">
+            <summary>
+            Gets a sorted list of all customers.
+            </summary>
+            <param name="sortExpression">Sort order.</param>
+            <returns>Sorted list of customers.</returns>
+        </member>
+        <member name="M:DoFactory.DataLayer.DataObjects.IPatientDao.GetPatient(System.Int32)">
+            <summary>
+            Gets a customer.
+            </summary>
+            <param name="customerId">Unique customer identifier.</param>
+            <returns>Customer.</returns>
+        </member>
+        <member name="M:DoFactory.DataLayer.DataObjects.IPatientDao.InsertPatient(DoFactory.BusinessLayer.BusinessObjects.Patient)">
+            <summary>
+            Inserts a new customer. 
+            </summary>
+            <remarks>
+            Following insert, customer object will contain the new identifier.
+            </remarks>
+            <param name="customer">Customer.</param>
+        </member>
+        <member name="M:DoFactory.DataLayer.DataObjects.IDoctorDao.InsertDoctor(DoFactory.BusinessLayer.BusinessObjects.Doctor)">
+            <summary>
+            Inserts a new customer. 
+            </summary>
+            <remarks>
+            Following insert, customer object will contain the new identifier.
+            </remarks>
+            <param name="customer">Customer.</param>
+        </member>
+        <member name="M:DoFactory.DataLayer.DataObjects.SqlServer.SqlServerPatientDao.GetPatient(System.Int32)">
+            <summary>
+            
+            </summary>
+            <param name="PatientID"></param>
+            <returns></returns>
+        </member>
+        <member name="M:DoFactory.DataLayer.DataObjects.SqlServer.SqlServerPatientDao.InsertPatient(DoFactory.BusinessLayer.BusinessObjects.Patient)">
+            <summary>
+            
+            </summary>
+            <param name="patient"></param>
+        </member>
+        <member name="M:DoFactory.DataLayer.DataObjects.SqlServer.SqlServerDoctorDao.GetDoctor(System.String)">
+            <summary>
+            
+            </summary>
+            <param name="PatientID"></param>
+            <returns></returns>
+        </member>
+        <member name="M:DoFactory.DataLayer.DataObjects.SqlServer.SqlServerDoctorDao.InsertDoctor(DoFactory.BusinessLayer.BusinessObjects.Doctor)">
+            <summary>
+            
+            </summary>
+            <param name="patient"></param>
+        </member>
+        <member name="M:DoFactory.DataLayer.DataObjects.Db.Update(System.String)">
+            <summary>
+            Executes Update statements in the database.
+            </summary>
+            <param name="sql">Sql statement.</param>
+            <returns>Number of rows affected.</returns>
+        </member>
+        <member name="M:DoFactory.DataLayer.DataObjects.Db.Insert(System.String,System.Boolean)">
+            <summary>
+            Executes Insert statements in the database. Optionally returns new identifier.
+            </summary>
+            <param name="sql">Sql statement.</param>
+            <param name="getId">Value indicating whether newly generated identity is returned.</param>
+            <returns>Newly generated identity value (autonumber value).</returns>
+        </member>
+        <member name="M:DoFactory.DataLayer.DataObjects.Db.Insert(System.String)">
+            <summary>
+            Executes Insert statements in the database.
+            </summary>
+            <param name="sql">Sql statement.</param>
+        </member>
+        <member name="M:DoFactory.DataLayer.DataObjects.Db.GetDataSet(System.String)">
+            <summary>
+            Populates a DataSet according to a Sql statement.
+            </summary>
+            <param name="sql">Sql statement.</param>
+            <returns>Populated DataSet.</returns>
+        </member>
+        <member name="M:DoFactory.DataLayer.DataObjects.Db.GetDataTable(System.String)">
+            <summary>
+            Populates a DataTable according to a Sql statement.
+            </summary>
+            <param name="sql">Sql statement.</param>
+            <returns>Populated DataTable.</returns>
+        </member>
+        <member name="M:DoFactory.DataLayer.DataObjects.Db.GetDataRow(System.String)">
+            <summary>
+            Populates a DataRow according to a Sql statement.
+            </summary>
+            <param name="sql">Sql statement.</param>
+            <returns>Populated DataRow.</returns>
+        </member>
+        <member name="M:DoFactory.DataLayer.DataObjects.Db.GetScalar(System.String)">
+            <summary>
+            Executes a Sql statement and returns a scalar value.
+            </summary>
+            <param name="sql">Sql statement.</param>
+            <returns>Scalar value.</returns>
+        </member>
+        <member name="M:DoFactory.DataLayer.DataObjects.Db.SelectQuery(System.String,System.String[],System.String[])">
+            <returns>A DataSet containing the results of the query</returns>
+        </member>
+        <member name="M:DoFactory.DataLayer.DataObjects.Db.GetTableName(System.String)">
+            <summary>
+            Transforms three letter acronym into actual table name.
+            </summary>
+            <param name="strTableName">A 3 character string value representing a table name.</param>		
+            <returns>A string value containing the actual table name</returns>
+            /// <remarks>
+            strTableName should only contain the values that follow below. The meaning of the values is also listed below.
+            <code>
+            IDT = Instructor_Data_Table
+            SDT = Student_Data_Table
+            DDT = Day_Data_Table
+            SAT = Student_Appointment_Table
+            TDT = Time_Data_Table
+            </code>
+            Pseudocode follows below.
+            <code>
+            Begin
+            	Determine table name based on passed string value
+            	return full table name
+            End
+            </code>
+            </remarks>
+        </member>
+        <member name="M:DoFactory.DataLayer.DataObjects.Db.BuildSelectQuery(System.String,System.String[],System.String[])">
+            <summary>
+            Builds Select statement.
+            </summary>
+            <param name="strTableName">A 3 character string value representing the table name</param>
+            <param name="strArrSelectValues">An array of strings containg the fields to be selected</param>
+            <param name="strArrWhereValues">An array of strings containing field names and search values to be searched on</param>
+            <returns>A string value containing the SQL select statement.</returns>
+            <remarks>
+            strArrWhereValues should contain the field and search value in consecutive pairs.
+            strTableName should only contain the values that follow below. The meaning of the values are listed below.
+            <code>
+            IDT = Instructor_Data_Table
+            SDT = Student_Data_Table
+            DDT = Day_Data_Table
+            SAT = Student_Appointment_Table
+            TDT = Time_Data_Table
+            </code> 
+            Pseudocode follows below.
+            <code>
+            Begin
+            	Determine if there is a single search value.
+            		Determine if it is a select all.
+            			Build first part of select all query.
+            		Else
+            			Build first part of select query.
+            		End Determine
+            	Else
+            		Build first select value into query.
+            		For each remaing value.
+            			Add value to query.
+            		End For
+            	End Determine
+            	Determine if there is a single value to search by.
+            		Return query.
+            	Else
+            		Add first search field/value pair to query
+            		For each remaining field/value pair
+            			Add field/value pair to query.
+            		End For.
+            		Return query.
+            	End Determine
+            End			
+            </code>
+            Note that strArrSelectValues should only contain a single element that is null if the select is a select all.
+            </remarks>
+        </member>
+        <member name="M:DoFactory.DataLayer.DataObjects.Db.InsertQuery(System.String,System.String[],System.String[])">
+            <summary>
+            Builds and executes an Insert query.
+            </summary>
+            <param name="strTableName">A 3 character field representing the table that the query will run against.</param>
+            <param name="strFields">An array of string values representing fields to be inserted.</param>
+            <param name="strValues">An array of string values representing values to be inserted</param>
+            /// <remarks>
+            strTableName should only contain the values that follow below. The meaning of the values is also listed below.
+            <code>
+            IDT = Instructor_Data_Table
+            SDT = Student_Data_Table
+            DDT = Day_Data_Table
+            SAT = Student_Appointment_Table
+            TDT = Time_Data_Table
+            </code>
+            Note that for strValue, values that are string fields in the database must be enclosed in single quotes ("'").
+             Pseudocode follows below.
+            <code>
+            Begin
+            	Get Insert query.
+            	ExecuteInsert query.
+            End					
+            </code>
+            </remarks>
+            <example>
+            Below is an example of the usage of this method.
+            <code>
+            Internweb.DBManipulator dbMangler = new Internweb.DBManipulator();
+            
+            dbMangler.InsertQuery("IDT", strArrayOfFieldsToInsert, strArrayOfValuesToInsert);
+            </code>
+            </example>
+        </member>
+        <member name="M:DoFactory.DataLayer.DataObjects.Db.BuildInsertQuery(System.String,System.String[],System.String[])">
+            <summary>
+            Builds an Insert query.
+            </summary>
+            <param name="strTableName">A 3 character field representing the table that the query will run against.</param>
+            <param name="strFields">An array of string values representing fields to be inserted.</param>
+            <param name="strValues">An array of string values representing values to be inserted</param>
+            <returns>A string value containing the Insert query</returns>
+            <remarks>
+            strTableName should only contain the values that follow below. The meaning of the values is also listed below.
+            <code>
+            IDT = Instructor_Data_Table
+            SDT = Student_Data_Table
+            DDT = Day_Data_Table
+            SAT = Student_Appointment_Table
+            TDT = Time_Data_Table
+            </code>
+            Pseudocode follows below.
+            <code>
+            Begin
+            	Add first part of insert query.
+            	For each field
+            		Add field to query
+            	End For.
+            	Begin value section of query
+            	For each value
+            		Add value to query.
+            	End For.
+            	Finalize query.
+            	Return query.
+            End
+            </code>
+            Note that for strValue, values that are string fields in the database must be enclosed in single quotes ("'").
+            </remarks>
+        </member>
+        <member name="M:DoFactory.DataLayer.DataObjects.Db.DeleteQuery(System.String,System.String[])">
+            <summary>
+            Builds and executes a delete query
+            </summary>
+            <param name="strTableName">A 3 character string value representing a table name</param>
+            <param name="strFieldValuePair">An array of string values containing field/value pairs</param>
+            <remarks>
+            strTableName should only contain the values that follow below. The meaning of the values is also listed below.
+            <code>
+            IDT = Instructor_Data_Table
+            SDT = Student_Data_Table
+            DDT = Day_Data_Table
+            SAT = Student_Appointment_Table
+            TDT = Time_Data_Table
+            </code>
+            strFieldValuePair should contain pairs of fields and values in consecutive order. Pseudocode follows below
+            <code>
+            Begin
+            	Build SQL Delete query.
+            	Execute SQL Delete query.
+            End
+            </code>
+            Note that for strFieldValuePair, values that are string fields in the database must be enclosed in single quotes ("'").
+            </remarks>
+            <example>
+            An example of the usage of this method follows below.
+            <code>
+            Internweb.DBManipulator dbMangler = new DBManipulator();
+            
+            dbMangler.DeleteQuery("IDT", strArrayOfFieldValuePairs);
+            </code>
+            </example>
+        </member>
+        <member name="M:DoFactory.DataLayer.DataObjects.Db.BuildDeleteQuery(System.String,System.String[])">
+            <summary>
+            Builds a SQL delete query
+            </summary>
+            <param name="strTableName">A 3 character string value representing a table name</param>
+            <param name="strFieldValuePair">An array of string values containing field/value pairs</param>
+            <returns>A string value containg a SQL Delete query.</returns>
+            <remarks>
+            strTableName should only contain the values that follow below. The meaning of the values is also listed below.
+            <code>
+            IDT = Instructor_Data_Table
+            SDT = Student_Data_Table
+            DDT = Day_Data_Table
+            SAT = Student_Appointment_Table
+            TDT = Time_Data_Table
+            </code>
+            strFieldValuePair should contain pairs of fields and values in consecutive order. Pseudocode follows below
+            <code>
+            Begin
+            	Build first half of Delete query.
+            	Add first field/value pair to query.
+            	For each remaining field/value pair
+            		Add field/value pair to query
+            	End For.
+            	Return query.
+            End
+            </code>
+            Note that for strFieldValuePair, values that are string fields in the database must be enclosed in single quotes ("'").
+            </remarks>
+        </member>
+        <member name="M:DoFactory.DataLayer.DataObjects.Db.UpdateQuery(System.String,System.String[],System.String[])">
+            <summary>
+            Builds and executes a SQL Update query.
+            </summary>
+            <param name="strTableName">A 3 character string value representing a table.</param>
+            <param name="strSetValuePair">An array of field/value pairs to update in the table.</param>
+            <param name="strWhereValuePair">An array of field/value pairs to qualify the update operation.</param>
+            <remarks>
+            strTableName should only contain the values that follow below. The meaning of the values is also listed below.
+            <code>
+            IDT = Instructor_Data_Table
+            SDT = Student_Data_Table
+            DDT = Day_Data_Table
+            SAT = Student_Appointment_Table
+            TDT = Time_Data_Table
+            </code>
+            strSetValuePair and strWhereValuePair should contain pairs of fields and values in consecutive order. Pseudocode follows below
+            <code>
+            Begin
+            	Build SQL Update query.
+            	Execute SQL Update query.
+            End
+            </code>
+            Note that for strWhereValuePair and strSetValuePair, values that are string fields in the database must be enclosed in single quotes ("'").
+            </remarks>
+            <example>
+            An example of the usage of this method follows below.
+            <code>
+            Internweb.DBManipulator dbMangler = new DBManipulator();
+            
+            dbMangler.UpdateQuery("IDT", strArrayOfSetValuePairs, strArrayOfWhereValuePairs);
+            </code>
+            </example>
+        </member>
+        <member name="M:DoFactory.DataLayer.DataObjects.Db.BuildUpdateQuery(System.String,System.String[],System.String[])">
+            <summary>
+            Build a SQL Update query
+            </summary>
+            <param name="strTableName">A 3 character string value representing a table.</param>
+            <param name="strSetValuePair">An array of field/value pairs to update in the table.</param>
+            <param name="strWhereValuePair">An array of field/value pairs to qualify the update operation.</param>
+            <returns>A string value containing a SQL Update query</returns>
+            <remarks>
+            strTableName should only contain the values that follow below. The meaning of the values is also listed below.
+            <code>
+            IDT = Instructor_Data_Table
+            SDT = Student_Data_Table
+            DDT = Day_Data_Table
+            SAT = Student_Appointment_Table
+            TDT = Time_Data_Table
+            </code>
+            strSetValuePair and strWhereValuePair should contain pairs of fields and values in consecutive order. Pseudocode follows below
+            <code>
+            Begin
+            	Build first part of Update query.
+            	For each SET field/value pair
+            		Add SET field/value pair to query.
+            	End For
+            	Add WHERE portion of query and add first WHERE field/value pair.
+            	For each WHERE field/value pair
+            		Add field/value pair to query.
+            	End For.
+            	Return Update query.
+            End
+            </code>
+            Note that for strWhereValuePair and strSetValuePair, values that are string fields in the database must be enclosed in single quotes ("'").
+            </remarks>
+        </member>
+        <member name="M:DoFactory.DataLayer.DataObjects.Db.Escape(System.String)">
+            <summary>
+            Escapes an input string for database processing, that is, 
+            surround it with quotes and change any quote in the string to 
+            two adjacent quotes (i.e. escape it). 
+            If input string is null or empty a NULL string is returned.
+            </summary>
+            <param name="s">Input string.</param>
+            <returns>Escaped output string.</returns>
+        </member>
+        <member name="M:DoFactory.DataLayer.DataObjects.Db.Escape(System.String,System.Int32)">
+            <summary>
+            Escapes an input string for database processing, that is, 
+            surround it with quotes and change any quote in the string to 
+            two adjacent quotes (i.e. escape it). 
+            Also trims string at a given maximum length.
+            If input string is null or empty a NULL string is returned.
+            </summary>
+            <param name="s">Input string.</param>
+            <param name="maxLength">Maximum length of output string.</param>
+            <returns>Escaped output string.</returns>
+        </member>
+        <member name="T:DoFactory.DataLayer.DataObjects.SqlServer.SqlServerDaoFactory">
+            <summary>
+            Sql Server specific factory that creates Sql Server specific data access objects.
+            
+            GoF Design Pattern: Factory.
+            </summary>
+        </member>
+        <member name="P:DoFactory.DataLayer.DataObjects.SqlServer.SqlServerDaoFactory.PatientDao">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:DoFactory.DataLayer.DataObjects.SqlServer.SqlServerDaoFactory.AppointmentDao">
+            <summary>
+            
+            </summary>
+        </member>
+    </members>
+</doc>

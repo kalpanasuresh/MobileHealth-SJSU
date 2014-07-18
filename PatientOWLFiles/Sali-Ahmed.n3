@@ -1,0 +1,225 @@
+# Base: http://www.owl-ontologies.com/Ontology1183162121.owl#
+@prefix xsd:     <http://www.w3.org/2001/XMLSchema#> .
+@prefix xsp:     <http://www.owl-ontologies.com/2005/08/07/xsp.owl#> .
+@prefix swrl:    <http://www.w3.org/2003/11/swrl#> .
+@prefix default:  <http://www.owl-ontologies.com/Ontology1183162121.owl#> .
+@prefix protege:  <http://protege.stanford.edu/plugins/owl/protege#> .
+@prefix swrlb:   <http://www.w3.org/2003/11/swrlb#> .
+@prefix rdfs:    <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix rdf:     <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix owl:     <http://www.w3.org/2002/07/owl#> .
+
+default:abdominal-pain
+      a       default:Symptoms ;
+      default:symp-name "Abdominal-Pain".
+
+default:disease-name
+      a       owl:DatatypeProperty ;
+      rdfs:domain default:Disease ;
+      rdfs:range xsd:string .
+
+default:attapulqite
+      a       default:Medication ;
+      default:med-name "Attapulaite" .
+
+default:tylenol
+      a       default:Medication ;
+      default:med-name "Tylenol" .
+
+default:fever
+      a       default:Symptoms ;
+      default:symp-name "fever" .
+
+default:nausea
+      a       default:Symptoms ;
+      default:symp-name "nausea"^^xsd:NCName .
+
+default:cough
+      a       default:Symptoms ;
+      default:symp-name "cough" .
+
+default:class-name
+      a       owl:DatatypeProperty ;
+      rdfs:domain default:Classification ;
+      rdfs:range xsd:string .
+
+default:pain-chest
+      a       default:Symptoms ;
+      default:symp-name "pain chest" .
+
+default:Medication
+      a       owl:Class .
+
+default:diarrhea
+      a       default:Symptoms ;
+      default:symp-name "diarrhea" .
+
+default:classification
+      a       owl:ObjectProperty .
+
+default:patient
+      a       owl:ObjectProperty .
+
+default:lung
+      a       default:Classification ;
+      default:class-name "Lung" .
+
+default:Classification
+      a       owl:Class ;
+      owl:equivalentClass
+              [ a       owl:Class ;
+                owl:oneOf (default:digestion default:lung default:eye-sight default:cold-flu default:skin)
+              ] .
+
+default:amoxicillin
+      a       default:Medication ;
+      default:med-name "Amoxicilin" .
+
+default:med-name
+      a       owl:DatatypeProperty ;
+      rdfs:domain default:Medication ;
+      rdfs:range xsd:string .
+
+default:Disease
+      a       owl:Class ;
+      rdfs:subClassOf owl:Thing ;
+      rdfs:subClassOf
+              [ a       owl:Restriction ;
+                owl:allValuesFrom default:Medication ;
+                owl:onProperty default:medication
+              ] ;
+      rdfs:subClassOf
+              [ a       owl:Restriction ;
+                owl:allValuesFrom default:Symptoms ;
+                owl:onProperty default:symptoms
+              ] ;
+      rdfs:subClassOf
+              [ a       owl:Restriction ;
+                owl:allValuesFrom default:Patient ;
+                owl:onProperty default:patient
+              ] ;
+      rdfs:subClassOf
+              [ a       owl:Restriction ;
+                owl:allValuesFrom default:Classification ;
+                owl:onProperty default:classification
+              ] ;
+      rdfs:subClassOf
+              [ a       owl:Restriction ;
+                owl:allValuesFrom default:Disease ;
+                owl:onProperty default:disease
+              ] .
+
+default:digestion
+      a       default:Classification ;
+      default:class-name "Digestion".
+
+default:cold-flu
+      a       default:Classification ;
+      default:class-name "Cold-Flu" .
+
+default:skin
+      a       owl:Thing .
+
+default:sore-throught
+      a       default:Symptoms ;
+      default:symp-name "sore throught " .
+
+default:fatigue
+      a       default:Symptoms ;
+      default:symp-name "fatigue" .
+
+default:stomach-flu
+      a       default:Disease ;
+      default:classification
+              default:cold-flu ;
+      default:disease default:stomach-flu ;
+      default:disease-name
+              "Stomach Flu" ;
+      default:medication default:attapulqite , default:tylenol ;
+      default:patient-name
+              "Sali Ahmad" ;
+      default:patinet-id "013" ;
+      default:symptoms default:cough , default:sore-throught , default:fatigue , default:fever , default:nausea , default:diarrhea , default:muscle-ache .
+
+default:patient-name
+      a       owl:DatatypeProperty ;
+      rdfs:domain default:Patient ;
+      rdfs:range xsd:string .
+
+default:disease
+      a       owl:ObjectProperty .
+
+default:muscle-ache
+      a       default:Symptoms ;
+      default:symp-name "muscle-ache" .
+
+default:earache
+      a       default:Symptoms ;
+      default:symp-name "earache" .
+
+default:eye-sight
+      a       default:Classification ;
+      default:class-name "Eye-Sight" .
+
+default:Patient
+      a       owl:Class .
+
+default:symp-name
+      a       owl:DatatypeProperty ;
+      rdfs:domain default:Symptoms ;
+      rdfs:range xsd:string .
+
+default:erythromycin
+      a       default:Medication ;
+      default:med-name "Erythromycin" .
+
+default:shortness-of-breath
+      a       default:Symptoms ;
+      default:symp-name "shortness of breath ".
+
+default:patinet-id
+      a       owl:DatatypeProperty ;
+      rdfs:domain default:Patient ;
+      rdfs:range xsd:int .
+
+default:medication
+      a       owl:ObjectProperty .
+
+<http://www.owl-ontologies.com/Ontology1183162121.owl>
+      a       owl:Ontology .
+
+default:Symptoms
+      a       owl:Class .
+
+default:symptoms
+      a       owl:ObjectProperty .
+
+default:pneumonia
+      a       default:Disease ;
+      default:classification
+              default:lung ;
+      default:disease default:pneumonia ;
+      default:disease-name
+              "Pneumonia" ;
+      default:medication default:tylenol , default:erythromycin ;
+      default:patient-name
+              "Sali Ahmad" ;
+      default:patinet-id "013" ;
+      default:symptoms default:cough , default:fever , default:pain-chest , default:shortness-of-breath .
+
+default:ear-infection
+      a       default:Disease ;
+      default:classification
+              default:cold-flu ;
+      default:disease default:ear-infection ;
+      default:disease-name
+              "Ear Infection" ;
+      default:medication default:amoxicillin , default:tylenol ;
+      default:patient-name
+              "Sali Ahmad" ;
+      default:patinet-id "013" ;
+      default:symptoms default:sore-throught , default:fever , default:vomiting , default:earache .
+
+default:vomiting
+      a       default:Symptoms ;
+      default:symp-name "vomiting " .

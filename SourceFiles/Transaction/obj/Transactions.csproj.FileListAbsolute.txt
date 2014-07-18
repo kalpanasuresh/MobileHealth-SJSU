@@ -1,0 +1,10 @@
+C:\Design Patterns\Design Pattern Framework 2.0 CS\Patterns In Action\Transaction\bin\Debug\Transactions.dll
+C:\Design Patterns\Design Pattern Framework 2.0 CS\Patterns In Action\Transaction\bin\Debug\Transactions.pdb
+C:\Design Patterns\Design Pattern Framework 2.0 CS\Patterns In Action\Transaction\obj\Debug\ResolveAssemblyReference.cache
+C:\Design Patterns\Design Pattern Framework 2.0 CS\Patterns In Action\Transaction\obj\Debug\Transactions.dll
+C:\Design Patterns\Design Pattern Framework 2.0 CS\Patterns In Action\Transaction\obj\Debug\Transactions.pdb
+C:\Patterns In Action\Transaction\bin\Debug\Transactions.dll
+C:\Patterns In Action\Transaction\bin\Debug\Transactions.pdb
+C:\Patterns In Action\Transaction\obj\Debug\ResolveAssemblyReference.cache
+C:\Patterns In Action\Transaction\obj\Debug\Transactions.dll
+C:\Patterns In Action\Transaction\obj\Debug\Transactions.pdb

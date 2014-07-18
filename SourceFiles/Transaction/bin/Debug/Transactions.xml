@@ -1,0 +1,100 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Transactions</name>
+    </assembly>
+    <members>
+        <member name="T:DoFactory.Framework.Transactions.TransactionDecorator">
+            <summary>
+            TransactionDecorator wraps (decorates) the built-in TransactionScope class 
+            and simply filters out the Microsoft Access transactions (the Jet engine 
+            provider does not support 'local transactions'). Microsoft Access transactions 
+            are therefore handled in simple autocommit mode. Additional database vendors
+            can be handled accordingly.
+            
+            GoF Design Pattern: Decorator.
+            </summary>
+            <remarks>
+            The Decorator Design Pattern is usually associated with additional functionality. 
+            In this simple decorator the additional functionality is that is simply filters 
+            for a particular database.
+            </remarks>
+        </member>
+        <member name="M:DoFactory.Framework.Transactions.TransactionDecorator.#ctor">
+            <summary>
+            Initializes a new instance of TransactionDecorator. 
+            Sets up the internal transaction scope variable.
+            </summary>
+        </member>
+        <member name="M:DoFactory.Framework.Transactions.TransactionDecorator.#ctor(System.Transactions.Transaction)">
+            <summary>
+            Initializes a new instance of the TransactionScope class and sets the 
+            specified transaction as the ambient transaction, so that transactional 
+            work done inside the scope uses this transDoFactory.
+            </summary>
+            <param name="transactionToUse">Represents a transaction.</param>
+        </member>
+        <member name="M:DoFactory.Framework.Transactions.TransactionDecorator.#ctor(System.Transactions.TransactionScopeOption)">
+            <summary>
+            Initializes a new instance of the TransactionScope class with the specified requirements. 
+            </summary>
+            <param name="scopeOption">Provides additional options for creating a TransactionDecorator.</param>
+        </member>
+        <member name="M:DoFactory.Framework.Transactions.TransactionDecorator.#ctor(System.Transactions.Transaction,System.TimeSpan)">
+            <summary>
+            Initializes a new instance of the TransactionScope class 
+            with the specified timeout value, and sets the specified 
+            transaction as the ambient transaction, so that transactional 
+            work done inside the scope uses this transDoFactory. 
+            </summary>
+            <param name="transactionToUse">Represents a transaction.</param>
+            <param name="scopeTimeout">The TimeSpan after which the transaction scope times out and aborts the transaction.</param>
+        </member>
+        <member name="M:DoFactory.Framework.Transactions.TransactionDecorator.#ctor(System.Transactions.TransactionScopeOption,System.TimeSpan)">
+            <summary>
+            Initializes a new instance of the TransactionScope class 
+            with the specified timeout value and requirements.
+            </summary>
+            <param name="scopeOption">TransactionScopeOption enumeration that describes the transaction requirements associated with this transaction scope.</param>
+            <param name="scopeTimeout">The TimeSpan after which the transaction scope times out and aborts the transaction.</param>
+        </member>
+        <member name="M:DoFactory.Framework.Transactions.TransactionDecorator.#ctor(System.Transactions.TransactionScopeOption,System.Transactions.TransactionOptions)">
+            <summary>
+            Initializes a new instance of the TransactionScope class with the specified requirements.
+            </summary>
+            <param name="scopeOption">TransactionScopeOption enumeration that describes the transaction requirements associated with this transaction scope.</param>
+            <param name="transactionOptions">A TransactionOptions structure that describes the transaction options to use if a new transaction is created. If an existing transaction is used, the timeout value in this parameter applies to the transaction scope. If that time expires before the scope is disposed, the transaction is aborted.</param>
+        </member>
+        <member name="M:DoFactory.Framework.Transactions.TransactionDecorator.#ctor(System.Transactions.Transaction,System.TimeSpan,System.Transactions.EnterpriseServicesInteropOption)">
+            <summary>
+            Initializes a new instance of the TransactionScope class with the specified 
+            timeout value and COM+ interoperability requirements, and sets the specified 
+            transaction as the ambient transaction, so that transactional work done inside 
+            the scope uses this transDoFactory. 
+            </summary>
+            <param name="transactionToUse">Represents a transaction.</param>
+            <param name="scopeTimeout">The TimeSpan after which the transaction scope times out and aborts the transaction.</param>
+            <param name="interopOption">An instance of the EnterpriseServicesInteropOption enumeration that describes how the associated transaction interacts with COM+ transactions.</param>
+        </member>
+        <member name="M:DoFactory.Framework.Transactions.TransactionDecorator.#ctor(System.Transactions.TransactionScopeOption,System.Transactions.TransactionOptions,System.Transactions.EnterpriseServicesInteropOption)">
+            <summary>
+            Initializes a new instance of the TransactionScope class with the 
+            specified scope and COM+ interoperability requirements, and 
+            transaction options.
+            </summary>
+            <param name="scopeOption">TransactionScopeOption enumeration that describes the transaction requirements associated with this transaction scope.</param>
+            <param name="transactionOptions">A TransactionOptions structure that describes the transaction options to use if a new transaction is created. If an existing transaction is used, the timeout value in this parameter applies to the transaction scope. If that time expires before the scope is disposed, the transaction is aborted.</param>
+            <param name="interopOption">An instance of the EnterpriseServicesInteropOption enumeration that describes how the associated transaction interacts with COM+ transactions.</param>
+        </member>
+        <member name="M:DoFactory.Framework.Transactions.TransactionDecorator.Complete">
+            <summary>
+            Indicates that all operations within the scope are completed succesfully.
+            </summary>
+        </member>
+        <member name="M:DoFactory.Framework.Transactions.TransactionDecorator.Dispose">
+            <summary>
+            Ends and disposes the transaction scope.
+            </summary>
+        </member>
+    </members>
+</doc>

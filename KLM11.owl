@@ -1,0 +1,527 @@
+<?xml version="1.0"?>
+<rdf:RDF
+    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+    xmlns="http://www.owl-ontologies.com/Ontology1183162121.owl#"
+    xmlns:protege="http://protege.stanford.edu/plugins/owl/protege#"
+    xmlns:xsp="http://www.owl-ontologies.com/2005/08/07/xsp.owl#"
+    xmlns:owl="http://www.w3.org/2002/07/owl#"
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+    xmlns:swrl="http://www.w3.org/2003/11/swrl#"
+    xmlns:swrlb="http://www.w3.org/2003/11/swrlb#"
+    xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+  xml:base="http://www.owl-ontologies.com/Ontology1183162121.owl">
+  <owl:Ontology rdf:about="file:/C:/KLM11.owl"/>
+  <owl:Class rdf:ID="Medication"/>
+  <owl:Class rdf:ID="Symptoms"/>
+  <owl:Class rdf:ID="Classification">
+    <owl:equivalentClass>
+      <owl:Class>
+        <owl:oneOf rdf:parseType="Collection">
+          <Classification rdf:ID="digestion">
+            <class-name rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+            >Digestion</class-name>
+          </Classification>
+          <Classification rdf:ID="lung">
+            <class-name rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+            >Lung</class-name>
+          </Classification>
+          <Classification rdf:ID="eye-sight">
+            <class-name rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+            >Eye-Sight</class-name>
+          </Classification>
+          <Classification rdf:ID="cold-flu">
+            <class-name rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+            >Cold-Flu</class-name>
+          </Classification>
+          <Classification rdf:ID="skin">
+            <class-name rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+            >Skin</class-name>
+          </Classification>
+        </owl:oneOf>
+      </owl:Class>
+    </owl:equivalentClass>
+  </owl:Class>
+  <owl:Class rdf:ID="Disease">
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty>
+          <owl:ObjectProperty rdf:ID="classification"/>
+        </owl:onProperty>
+        <owl:allValuesFrom rdf:resource="#Classification"/>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:allValuesFrom rdf:resource="#Disease"/>
+        <owl:onProperty>
+          <owl:ObjectProperty rdf:ID="disease"/>
+        </owl:onProperty>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:allValuesFrom rdf:resource="#Medication"/>
+        <owl:onProperty>
+          <owl:ObjectProperty rdf:ID="medication"/>
+        </owl:onProperty>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf>
+      <owl:Restriction>
+        <owl:onProperty>
+          <owl:ObjectProperty rdf:ID="symptoms"/>
+        </owl:onProperty>
+        <owl:allValuesFrom rdf:resource="#Symptoms"/>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+    <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+  </owl:Class>
+  <owl:DatatypeProperty rdf:ID="class-name">
+    <rdfs:domain rdf:resource="#Classification"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:ID="med-name">
+    <rdfs:domain rdf:resource="#Medication"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:ID="disease-name">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:domain rdf:resource="#Disease"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:ID="symp-name">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:domain rdf:resource="#Symptoms"/>
+  </owl:DatatypeProperty>
+  <Symptoms rdf:ID="eye-pain">
+    <symp-name rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >eye-pain</symp-name>
+  </Symptoms>
+  <Symptoms rdf:ID="sore-throught">
+    <symp-name rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >sore throught </symp-name>
+  </Symptoms>
+  <Symptoms rdf:ID="headache">
+    <symp-name rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >headache</symp-name>
+  </Symptoms>
+  <Symptoms rdf:ID="itchy-eyes">
+    <symp-name rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >itechy eye</symp-name>
+  </Symptoms>
+  <Medication rdf:ID="cepacol">
+    <med-name rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Cepacol</med-name>
+  </Medication>
+  <Symptoms rdf:ID="vomiting">
+    <symp-name rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >vomiting </symp-name>
+  </Symptoms>
+  <Disease rdf:ID="appendix">
+    <disease rdf:resource="#appendix"/>
+    <symptoms rdf:resource="#vomiting"/>
+    <medication>
+      <Medication rdf:ID="tylenol">
+        <med-name rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >Tylenol</med-name>
+      </Medication>
+    </medication>
+    <medication>
+      <Medication rdf:ID="augmantine">
+        <med-name rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >Augmantine</med-name>
+      </Medication>
+    </medication>
+    <disease-name rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Appendix</disease-name>
+    <symp-name rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Abdominal-Pain</symp-name>
+    <symptoms>
+      <Symptoms rdf:ID="abdominal-pain">
+        <symp-name rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >Abdominal-Pain</symp-name>
+      </Symptoms>
+    </symptoms>
+    <classification rdf:resource="#digestion"/>
+    <symptoms>
+      <Symptoms rdf:ID="fever">
+        <symp-name rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >fever</symp-name>
+      </Symptoms>
+    </symptoms>
+  </Disease>
+  <Symptoms rdf:ID="night-sweat">
+    <symp-name rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >night sweat</symp-name>
+  </Symptoms>
+  <Symptoms rdf:ID="general-weakness">
+    <symp-name rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >general-weakness</symp-name>
+  </Symptoms>
+  <Symptoms rdf:ID="runny-nose">
+    <symp-name rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >runny nose</symp-name>
+  </Symptoms>
+  <Medication rdf:ID="alavert">
+    <med-name rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Alavert</med-name>
+  </Medication>
+  <Symptoms rdf:ID="bluish-lip">
+    <symp-name rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >blusih-lip</symp-name>
+  </Symptoms>
+  <Symptoms rdf:ID="shortness-of-breath">
+    <symp-name rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >shortness of breath </symp-name>
+  </Symptoms>
+  <Classification rdf:ID="chicken-pox">
+    <class-name rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Chicken-Pox</class-name>
+  </Classification>
+  <Disease rdf:ID="constipation">
+    <disease rdf:resource="#constipation"/>
+    <symptoms rdf:resource="#abdominal-pain"/>
+    <symptoms>
+      <Symptoms rdf:ID="hard-stool">
+        <symp-name rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >hard stool</symp-name>
+      </Symptoms>
+    </symptoms>
+    <medication>
+      <Medication rdf:ID="softner-stool">
+        <med-name rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >Softener-Stool</med-name>
+      </Medication>
+    </medication>
+    <classification rdf:resource="#digestion"/>
+    <disease-name rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Constipation</disease-name>
+  </Disease>
+  <Symptoms rdf:ID="inflamation-of-skin">
+    <symp-name rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >inflamation-of-skin</symp-name>
+  </Symptoms>
+  <Medication rdf:ID="beta-adrenegic">
+    <med-name rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Beta-Adrenegic</med-name>
+  </Medication>
+  <Disease rdf:ID="acne">
+    <symptoms>
+      <Symptoms rdf:ID="breakout">
+        <symp-name rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >breakout</symp-name>
+      </Symptoms>
+    </symptoms>
+    <disease-name rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Acne</disease-name>
+    <symp-name rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >breakout</symp-name>
+    <classification rdf:resource="#skin"/>
+    <medication>
+      <Medication rdf:ID="benzaic">
+        <med-name rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >Benzaic</med-name>
+      </Medication>
+    </medication>
+    <medication>
+      <Medication rdf:ID="tetracycline">
+        <med-name rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >Tetracycline</med-name>
+      </Medication>
+    </medication>
+    <disease rdf:resource="#acne"/>
+  </Disease>
+  <Symptoms rdf:ID="muscle-ache">
+    <symp-name rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >muscle-ache</symp-name>
+  </Symptoms>
+  <Symptoms rdf:ID="itchy-nose">
+    <symp-name rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >itchy nose</symp-name>
+  </Symptoms>
+  <Symptoms rdf:ID="pain-chest">
+    <symp-name rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >pain chest</symp-name>
+  </Symptoms>
+  <Medication rdf:ID="erythromycin">
+    <med-name rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Erythromycin</med-name>
+  </Medication>
+  <Medication rdf:ID="carbonic-anhydrase">
+    <med-name rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Carbonic-Anhydrase</med-name>
+  </Medication>
+  <Disease rdf:ID="flu">
+    <classification rdf:resource="#cold-flu"/>
+    <symptoms rdf:resource="#sore-throught"/>
+    <symptoms>
+      <Symptoms rdf:ID="fatigue">
+        <symp-name rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >fatigue</symp-name>
+      </Symptoms>
+    </symptoms>
+    <disease-name rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Flu</disease-name>
+    <disease rdf:resource="#flu"/>
+    <medication rdf:resource="#tylenol"/>
+    <symptoms rdf:resource="#fever"/>
+    <medication rdf:resource="#cepacol"/>
+    <symptoms>
+      <Symptoms rdf:ID="cough">
+        <symp-name rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >cough</symp-name>
+      </Symptoms>
+    </symptoms>
+    <symptoms rdf:resource="#muscle-ache"/>
+  </Disease>
+  <Disease rdf:ID="common-cold">
+    <disease rdf:resource="#common-cold"/>
+    <disease-name rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Common-Cold</disease-name>
+    <medication>
+      <Medication rdf:ID="codeine">
+        <med-name rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >Codeine</med-name>
+      </Medication>
+    </medication>
+    <medication rdf:resource="#tylenol"/>
+    <symptoms rdf:resource="#cough"/>
+    <symptoms rdf:resource="#headache"/>
+    <classification rdf:resource="#cold-flu"/>
+  </Disease>
+  <Medication rdf:ID="nocotine-gum">
+    <med-name rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Nicotine-Gum</med-name>
+  </Medication>
+  <Disease rdf:ID="asthma">
+    <disease rdf:resource="#asthma"/>
+    <classification rdf:resource="#lung"/>
+    <disease-name rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Asthma</disease-name>
+    <medication>
+      <Medication rdf:ID="qvar">
+        <med-name rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >Qvar</med-name>
+      </Medication>
+    </medication>
+    <symptoms rdf:resource="#cough"/>
+    <symptoms rdf:resource="#shortness-of-breath"/>
+  </Disease>
+  <Medication rdf:ID="benadrayal">
+    <med-name rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Benadryl</med-name>
+  </Medication>
+  <Medication rdf:ID="sulfasazine">
+    <med-name rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Sulfasazine</med-name>
+  </Medication>
+  <Disease rdf:ID="ear-infection">
+    <symptoms>
+      <Symptoms rdf:ID="earache">
+        <symp-name rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >earache</symp-name>
+      </Symptoms>
+    </symptoms>
+    <medication>
+      <Medication rdf:ID="amoxicillin">
+        <med-name rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >Amoxicilin</med-name>
+      </Medication>
+    </medication>
+    <classification rdf:resource="#cold-flu"/>
+    <disease-name rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Ear-Infection</disease-name>
+    <medication rdf:resource="#tylenol"/>
+    <symptoms rdf:resource="#fever"/>
+    <symptoms rdf:resource="#sore-throught"/>
+    <disease rdf:resource="#ear-infection"/>
+    <symptoms rdf:resource="#vomiting"/>
+  </Disease>
+  <Disease rdf:ID="pneumonia">
+    <disease-name rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Pneumonia</disease-name>
+    <symptoms rdf:resource="#pain-chest"/>
+    <symptoms rdf:resource="#cough"/>
+    <disease rdf:resource="#pneumonia"/>
+    <symptoms rdf:resource="#fever"/>
+    <medication rdf:resource="#tylenol"/>
+    <classification rdf:resource="#lung"/>
+    <symptoms rdf:resource="#shortness-of-breath"/>
+    <medication rdf:resource="#erythromycin"/>
+  </Disease>
+  <Disease rdf:ID="copd">
+    <medication rdf:resource="#nocotine-gum"/>
+    <medication>
+      <Medication rdf:ID="beta-agonists">
+        <med-name rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >Beta-Agonists</med-name>
+      </Medication>
+    </medication>
+    <disease-name rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Copd</disease-name>
+    <classification rdf:resource="#lung"/>
+    <disease rdf:resource="#copd"/>
+    <symptoms rdf:resource="#bluish-lip"/>
+    <symptoms rdf:resource="#shortness-of-breath"/>
+    <symptoms>
+      <Symptoms rdf:ID="frequent-respiratory-infection">
+        <symp-name rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >frequent-respiratory-infection</symp-name>
+      </Symptoms>
+    </symptoms>
+  </Disease>
+  <Symptoms rdf:ID="red-eyes">
+    <symp-name rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >red name</symp-name>
+  </Symptoms>
+  <Symptoms rdf:ID="sneezing">
+    <symp-name rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >sneezing </symp-name>
+  </Symptoms>
+  <Symptoms rdf:ID="swelling-eyes">
+    <symp-name rdf:datatype="http://www.w3.org/2001/XMLSchema#NCName"
+    >swelling-eyes</symp-name>
+  </Symptoms>
+  <Disease rdf:ID="allergy">
+    <classification rdf:resource="#cold-flu"/>
+    <medication rdf:resource="#codeine"/>
+    <medication rdf:resource="#benadrayal"/>
+    <symptoms rdf:resource="#muscle-ache"/>
+    <disease-name rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Allergy</disease-name>
+    <symptoms rdf:resource="#runny-nose"/>
+    <symptoms rdf:resource="#sneezing"/>
+    <disease rdf:resource="#allergy"/>
+    <symptoms>
+      <Symptoms rdf:ID="watery-eyes">
+        <symp-name rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >watery eyes</symp-name>
+      </Symptoms>
+    </symptoms>
+    <symptoms rdf:resource="#headache"/>
+  </Disease>
+  <Symptoms rdf:ID="rectal-bleeding">
+    <symp-name rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >rectal bleeding </symp-name>
+  </Symptoms>
+  <Disease rdf:ID="pink-eye">
+    <symptoms rdf:resource="#red-eyes"/>
+    <disease-name rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Pink-Eye</disease-name>
+    <symptoms rdf:resource="#itchy-eyes"/>
+    <symptoms rdf:resource="#sneezing"/>
+    <disease rdf:resource="#pink-eye"/>
+    <symptoms rdf:resource="#itchy-nose"/>
+    <classification rdf:resource="#eye-sight"/>
+    <symptoms rdf:resource="#swelling-eyes"/>
+    <medication rdf:resource="#alavert"/>
+    <symptoms rdf:resource="#eye-pain"/>
+  </Disease>
+  <Symptoms rdf:ID="elavated-pressure-eyes">
+    <symp-name rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >elavated-pressure-eyes</symp-name>
+  </Symptoms>
+  <Symptoms rdf:ID="tearing">
+    <symp-name rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >tearing </symp-name>
+  </Symptoms>
+  <Symptoms rdf:ID="diarrhea">
+    <symp-name rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >diarrhea</symp-name>
+  </Symptoms>
+  <Symptoms rdf:ID="red-spot">
+    <symp-name rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >red spot </symp-name>
+  </Symptoms>
+  <Symptoms rdf:ID="crusting">
+    <symp-name rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >crusting</symp-name>
+  </Symptoms>
+  <Symptoms rdf:ID="swelling-skin">
+    <symp-name rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >swelling skin </symp-name>
+  </Symptoms>
+  <Medication rdf:ID="attapulqite">
+    <med-name rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Attapulaite</med-name>
+  </Medication>
+  <Symptoms rdf:ID="nausea">
+    <symp-name rdf:datatype="http://www.w3.org/2001/XMLSchema#NCName"
+    >nausea</symp-name>
+  </Symptoms>
+  <Disease rdf:ID="atopic-dermatitis">
+    <classification rdf:resource="#skin"/>
+    <disease-name rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Atopic-Dermatitis</disease-name>
+    <symptoms rdf:resource="#inflamation-of-skin"/>
+    <symptoms rdf:resource="#crusting"/>
+    <symptoms rdf:resource="#swelling-skin"/>
+    <symptoms>
+      <Symptoms rdf:ID="itchy-skin">
+        <symp-name rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >itchy skin</symp-name>
+      </Symptoms>
+    </symptoms>
+    <medication>
+      <Medication rdf:ID="hydrocortizone">
+        <med-name rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >Hydrocortizine</med-name>
+      </Medication>
+    </medication>
+    <disease rdf:resource="#atopic-dermatitis"/>
+  </Disease>
+  <Medication rdf:ID="acyclovir">
+    <med-name rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Acyclovir</med-name>
+  </Medication>
+  <Symptoms rdf:ID="weight-loss">
+    <symp-name rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >weight loss</symp-name>
+  </Symptoms>
+  <Disease rdf:ID="stomach-flu">
+    <medication rdf:resource="#attapulqite"/>
+    <symptoms rdf:resource="#sore-throught"/>
+    <disease rdf:resource="#stomach-flu"/>
+    <symptoms rdf:resource="#fatigue"/>
+    <classification rdf:resource="#cold-flu"/>
+    <symptoms rdf:resource="#cough"/>
+    <symptoms rdf:resource="#muscle-ache"/>
+    <disease-name rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    ></disease-name>
+    <symptoms rdf:resource="#nausea"/>
+    <symptoms rdf:resource="#diarrhea"/>
+    <symptoms rdf:resource="#fever"/>
+    <medication rdf:resource="#tylenol"/>
+  </Disease>
+  <Disease rdf:ID="glaucoma">
+    <disease rdf:resource="#glaucoma"/>
+    <symptoms rdf:resource="#elavated-pressure-eyes"/>
+    <symptoms rdf:resource="#vomiting"/>
+    <disease-name rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Glaucoma</disease-name>
+    <symptoms rdf:resource="#red-eyes"/>
+    <symptoms rdf:resource="#nausea"/>
+    <medication rdf:resource="#beta-agonists"/>
+    <symptoms rdf:resource="#eye-pain"/>
+    <classification rdf:resource="#eye-sight"/>
+    <medication rdf:resource="#carbonic-anhydrase"/>
+  </Disease>
+  <Symptoms rdf:ID="rectal-pain">
+    <symp-name rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >rectal pain </symp-name>
+  </Symptoms>
+  <Disease rdf:ID="chronic">
+    <medication rdf:resource="#sulfasazine"/>
+    <symptoms rdf:resource="#rectal-bleeding"/>
+    <disease rdf:resource="#chronic"/>
+    <medication rdf:resource="#tylenol"/>
+    <disease-name rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Chronic</disease-name>
+    <classification rdf:resource="#digestion"/>
+    <symptoms rdf:resource="#weight-loss"/>
+    <symptoms rdf:resource="#night-sweat"/>
+    <symptoms rdf:resource="#rectal-pain"/>
+    <symptoms rdf:resource="#abdominal-pain"/>
+  </Disease>
+</rdf:RDF>
+
+<!-- Created with Protege (with OWL Plugin 3.4, Build 500)  http://protege.stanford.edu -->

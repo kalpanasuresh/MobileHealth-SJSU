@@ -1,0 +1,682 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://www.yourcompany.com/webservice/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" targetNamespace="http://www.yourcompany.com/webservice/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://www.yourcompany.com/webservice/">
+      <s:element name="Login">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="request" type="tns:LoginRequest" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="LoginRequest">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:RequestBase">
+            <s:sequence>
+              <s:element minOccurs="0" maxOccurs="1" name="UserName" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="Password" type="s:string" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="RequestBase">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="SecurityToken" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Version" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="RequestId" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="LoginResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="LoginResult" type="tns:LoginResponse" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="LoginResponse">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:ResponseBase">
+            <s:sequence>
+              <s:element minOccurs="0" maxOccurs="1" name="Uri" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="SessionId" type="s:string" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="ResponseBase">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="Acknowledge" type="tns:AcknowledgeType" />
+          <s:element minOccurs="0" maxOccurs="1" name="CorrelationId" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Message" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ReservationId" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="ReservationExpires" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="Version" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Build" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:simpleType name="AcknowledgeType">
+        <s:restriction base="s:string">
+          <s:enumeration value="Failure" />
+          <s:enumeration value="Success" />
+        </s:restriction>
+      </s:simpleType>
+      <s:element name="Logout">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="request" type="tns:LogoutRequest" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="LogoutRequest">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:RequestBase" />
+        </s:complexContent>
+      </s:complexType>
+      <s:element name="LogoutResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="LogoutResult" type="tns:LogoutResponse" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="LogoutResponse">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:ResponseBase" />
+        </s:complexContent>
+      </s:complexType>
+      <s:element name="GetPatients">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="request" type="tns:PatientRequest" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="PatientRequest">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:RequestBase">
+            <s:sequence>
+              <s:element minOccurs="0" maxOccurs="1" name="SortExpression" type="s:string" />
+              <s:element minOccurs="1" maxOccurs="1" name="PatientID" type="s:int" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:element name="GetPatientsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetPatientsResult" type="tns:PatientResponse" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="PatientResponse">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:ResponseBase">
+            <s:sequence>
+              <s:element minOccurs="0" maxOccurs="1" name="Patients" type="tns:ArrayOfPatientTransferObject" />
+              <s:element minOccurs="0" maxOccurs="1" name="Name" type="s:string" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="ArrayOfPatientTransferObject">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="PatientTransferObject" nillable="true" type="tns:PatientTransferObject" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="PatientTransferObject">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="PatientID" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="FName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="LName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Phone" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="UserID" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="SecQues" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="SecAns" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Email" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Password" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="dOBirth" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="gender" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="zip" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="healthIn" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="locPolicy" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="address" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="city" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="state" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="provider" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetPatient">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="request" type="tns:PatientRequest" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetPatientResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetPatientResult" type="tns:PatientResponse" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetDoctors">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="request" type="tns:DoctorRequest" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="DoctorRequest">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:RequestBase">
+            <s:sequence>
+              <s:element minOccurs="0" maxOccurs="1" name="lastName" type="s:string" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:element name="GetDoctorsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetDoctorsResult" type="tns:DoctorResponse" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="DoctorResponse">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:ResponseBase">
+            <s:sequence>
+              <s:element minOccurs="0" maxOccurs="1" name="ds">
+                <s:complexType>
+                  <s:sequence>
+                    <s:element ref="s:schema" />
+                    <s:any />
+                  </s:sequence>
+                </s:complexType>
+              </s:element>
+              <s:element minOccurs="0" maxOccurs="1" name="Doc" type="tns:DoctorTransferObject" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="DoctorTransferObject">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="fName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="LName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="dOBirth" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="gender" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="email" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="zip" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="user" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="pass" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="docID" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="phone" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="secQu" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="answer" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="NatProvID" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="PrmSpl" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="LicType" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="title" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="officeAdr" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="state" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="city" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetDocSchedule">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="request" type="tns:AppointmentRequest" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="AppointmentRequest">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:RequestBase">
+            <s:sequence>
+              <s:element minOccurs="0" maxOccurs="1" name="Appt" type="tns:AppointmentTransferObject" />
+              <s:element minOccurs="1" maxOccurs="1" name="date" type="s:dateTime" />
+              <s:element minOccurs="1" maxOccurs="1" name="docID" type="s:int" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="AppointmentTransferObject">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="patientID" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="doctorID" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="apptID" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="date" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="AM0800" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="AM0830" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="AM0900" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="AM0930" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="AM1000" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="AM1030" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="AM1100" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="AM1130" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="PM1200" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="PM1230" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="PM0100" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="PM0130" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="PM0200" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="PM0230" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="PM0300" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="PM0330" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="PM0400" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="PM0430" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="PM0500" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="dayID" type="s:int" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetDocScheduleResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetDocScheduleResult" type="tns:AppointmentResponse" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="AppointmentResponse">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:ResponseBase">
+            <s:sequence>
+              <s:element minOccurs="1" maxOccurs="1" name="count" type="s:int" />
+              <s:element minOccurs="0" maxOccurs="1" name="Appt" type="tns:AppointmentTransferObject" />
+              <s:element minOccurs="0" maxOccurs="1" name="ds">
+                <s:complexType>
+                  <s:sequence>
+                    <s:element ref="s:schema" />
+                    <s:any />
+                  </s:sequence>
+                </s:complexType>
+              </s:element>
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:element name="PersistPatient">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="request" type="tns:PersistPatientRequest" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="PersistPatientRequest">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:RequestBase">
+            <s:sequence>
+              <s:element minOccurs="1" maxOccurs="1" name="PersistAction" type="tns:PersistType" />
+              <s:element minOccurs="0" maxOccurs="1" name="Patient" type="tns:PatientTransferObject" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:simpleType name="PersistType">
+        <s:restriction base="s:string">
+          <s:enumeration value="Insert" />
+          <s:enumeration value="Update" />
+          <s:enumeration value="Delete" />
+        </s:restriction>
+      </s:simpleType>
+      <s:element name="PersistPatientResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="PersistPatientResult" type="tns:PersistPatientResponse" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="PersistPatientResponse">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:ResponseBase">
+            <s:sequence>
+              <s:element minOccurs="0" maxOccurs="1" name="Patient" type="tns:PatientTransferObject" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:element name="PersistDoctor">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="request" type="tns:PersistDoctorRequest" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="PersistDoctorRequest">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:RequestBase">
+            <s:sequence>
+              <s:element minOccurs="1" maxOccurs="1" name="PersistAction" type="tns:PersistType" />
+              <s:element minOccurs="0" maxOccurs="1" name="Doctor" type="tns:DoctorTransferObject" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:element name="PersistDoctorResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="PersistDoctorResult" type="tns:PersistDoctorResponse" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="PersistDoctorResponse">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:ResponseBase">
+            <s:sequence>
+              <s:element minOccurs="0" maxOccurs="1" name="Doctor" type="tns:DoctorTransferObject" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:element name="PersistAppt">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="request" type="tns:PersistAppointmentRequest" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="PersistAppointmentRequest">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:RequestBase">
+            <s:sequence>
+              <s:element minOccurs="1" maxOccurs="1" name="PersistAction" type="tns:PersistType" />
+              <s:element minOccurs="1" maxOccurs="1" name="Date" type="s:dateTime" />
+              <s:element minOccurs="1" maxOccurs="1" name="patientID" type="s:int" />
+              <s:element minOccurs="1" maxOccurs="1" name="DoctorID" type="s:int" />
+              <s:element minOccurs="0" maxOccurs="1" name="strSet" type="tns:ArrayOfString" />
+              <s:element minOccurs="1" maxOccurs="1" name="TimeID" type="s:int" />
+              <s:element minOccurs="0" maxOccurs="1" name="Appt" type="tns:AppointmentTransferObject" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="ArrayOfString">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="string" nillable="true" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="PersistApptResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="PersistApptResult" type="tns:PersistAppointmentResponse" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="PersistAppointmentResponse">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:ResponseBase">
+            <s:sequence>
+              <s:element minOccurs="0" maxOccurs="1" name="Appt" type="tns:AppointmentTransferObject" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="LoginSoapIn">
+    <wsdl:part name="parameters" element="tns:Login" />
+  </wsdl:message>
+  <wsdl:message name="LoginSoapOut">
+    <wsdl:part name="parameters" element="tns:LoginResponse" />
+  </wsdl:message>
+  <wsdl:message name="LogoutSoapIn">
+    <wsdl:part name="parameters" element="tns:Logout" />
+  </wsdl:message>
+  <wsdl:message name="LogoutSoapOut">
+    <wsdl:part name="parameters" element="tns:LogoutResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetPatientsSoapIn">
+    <wsdl:part name="parameters" element="tns:GetPatients" />
+  </wsdl:message>
+  <wsdl:message name="GetPatientsSoapOut">
+    <wsdl:part name="parameters" element="tns:GetPatientsResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetPatientSoapIn">
+    <wsdl:part name="parameters" element="tns:GetPatient" />
+  </wsdl:message>
+  <wsdl:message name="GetPatientSoapOut">
+    <wsdl:part name="parameters" element="tns:GetPatientResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetDoctorsSoapIn">
+    <wsdl:part name="parameters" element="tns:GetDoctors" />
+  </wsdl:message>
+  <wsdl:message name="GetDoctorsSoapOut">
+    <wsdl:part name="parameters" element="tns:GetDoctorsResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetDocScheduleSoapIn">
+    <wsdl:part name="parameters" element="tns:GetDocSchedule" />
+  </wsdl:message>
+  <wsdl:message name="GetDocScheduleSoapOut">
+    <wsdl:part name="parameters" element="tns:GetDocScheduleResponse" />
+  </wsdl:message>
+  <wsdl:message name="PersistPatientSoapIn">
+    <wsdl:part name="parameters" element="tns:PersistPatient" />
+  </wsdl:message>
+  <wsdl:message name="PersistPatientSoapOut">
+    <wsdl:part name="parameters" element="tns:PersistPatientResponse" />
+  </wsdl:message>
+  <wsdl:message name="PersistDoctorSoapIn">
+    <wsdl:part name="parameters" element="tns:PersistDoctor" />
+  </wsdl:message>
+  <wsdl:message name="PersistDoctorSoapOut">
+    <wsdl:part name="parameters" element="tns:PersistDoctorResponse" />
+  </wsdl:message>
+  <wsdl:message name="PersistApptSoapIn">
+    <wsdl:part name="parameters" element="tns:PersistAppt" />
+  </wsdl:message>
+  <wsdl:message name="PersistApptSoapOut">
+    <wsdl:part name="parameters" element="tns:PersistApptResponse" />
+  </wsdl:message>
+  <wsdl:portType name="ServiceSoap">
+    <wsdl:operation name="Login">
+      <wsdl:input message="tns:LoginSoapIn" />
+      <wsdl:output message="tns:LoginSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Logout">
+      <wsdl:input message="tns:LogoutSoapIn" />
+      <wsdl:output message="tns:LogoutSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPatients">
+      <wsdl:input message="tns:GetPatientsSoapIn" />
+      <wsdl:output message="tns:GetPatientsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPatient">
+      <wsdl:input message="tns:GetPatientSoapIn" />
+      <wsdl:output message="tns:GetPatientSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDoctors">
+      <wsdl:input message="tns:GetDoctorsSoapIn" />
+      <wsdl:output message="tns:GetDoctorsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDocSchedule">
+      <wsdl:input message="tns:GetDocScheduleSoapIn" />
+      <wsdl:output message="tns:GetDocScheduleSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="PersistPatient">
+      <wsdl:input message="tns:PersistPatientSoapIn" />
+      <wsdl:output message="tns:PersistPatientSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="PersistDoctor">
+      <wsdl:input message="tns:PersistDoctorSoapIn" />
+      <wsdl:output message="tns:PersistDoctorSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="PersistAppt">
+      <wsdl:input message="tns:PersistApptSoapIn" />
+      <wsdl:output message="tns:PersistApptSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="ServiceSoap" type="tns:ServiceSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="Login">
+      <soap:operation soapAction="http://www.yourcompany.com/webservice/Login" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Logout">
+      <soap:operation soapAction="http://www.yourcompany.com/webservice/Logout" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPatients">
+      <soap:operation soapAction="http://www.yourcompany.com/webservice/GetPatients" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPatient">
+      <soap:operation soapAction="http://www.yourcompany.com/webservice/GetPatient" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDoctors">
+      <soap:operation soapAction="http://www.yourcompany.com/webservice/GetDoctors" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDocSchedule">
+      <soap:operation soapAction="http://www.yourcompany.com/webservice/GetDocSchedule" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PersistPatient">
+      <soap:operation soapAction="http://www.yourcompany.com/webservice/PersistPatient" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PersistDoctor">
+      <soap:operation soapAction="http://www.yourcompany.com/webservice/PersistDoctor" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PersistAppt">
+      <soap:operation soapAction="http://www.yourcompany.com/webservice/PersistAppt" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="ServiceSoap12" type="tns:ServiceSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="Login">
+      <soap12:operation soapAction="http://www.yourcompany.com/webservice/Login" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Logout">
+      <soap12:operation soapAction="http://www.yourcompany.com/webservice/Logout" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPatients">
+      <soap12:operation soapAction="http://www.yourcompany.com/webservice/GetPatients" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPatient">
+      <soap12:operation soapAction="http://www.yourcompany.com/webservice/GetPatient" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDoctors">
+      <soap12:operation soapAction="http://www.yourcompany.com/webservice/GetDoctors" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDocSchedule">
+      <soap12:operation soapAction="http://www.yourcompany.com/webservice/GetDocSchedule" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PersistPatient">
+      <soap12:operation soapAction="http://www.yourcompany.com/webservice/PersistPatient" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PersistDoctor">
+      <soap12:operation soapAction="http://www.yourcompany.com/webservice/PersistDoctor" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PersistAppt">
+      <soap12:operation soapAction="http://www.yourcompany.com/webservice/PersistAppt" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="Service">
+    <wsdl:port name="ServiceSoap" binding="tns:ServiceSoap">
+      <soap:address location="http://localhost/webservices/Service.asmx" />
+    </wsdl:port>
+    <wsdl:port name="ServiceSoap12" binding="tns:ServiceSoap12">
+      <soap12:address location="http://localhost/webservices/Service.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

@@ -1,0 +1,8 @@
+C:\Patterns In Action\DataObjects\bin\Debug\DataObjects.dll
+C:\Patterns In Action\DataObjects\bin\Debug\DataObjects.pdb
+C:\Patterns In Action\DataObjects\bin\Debug\BusinessObjects.dll
+C:\Patterns In Action\DataObjects\bin\Debug\BusinessObjects.pdb
+C:\Patterns In Action\DataObjects\bin\Debug\BusinessObjects.xml
+C:\Patterns In Action\DataObjects\obj\Debug\ResolveAssemblyReference.cache
+C:\Patterns In Action\DataObjects\obj\Debug\DataObjects.dll
+C:\Patterns In Action\DataObjects\obj\Debug\DataObjects.pdb

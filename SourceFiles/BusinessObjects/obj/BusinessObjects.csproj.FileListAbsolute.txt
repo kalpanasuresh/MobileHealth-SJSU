@@ -1,0 +1,10 @@
+C:\Design Patterns\Design Pattern Framework 2.0 CS\Patterns In Action\BusinessObjects\bin\Debug\BusinessObjects.dll
+C:\Design Patterns\Design Pattern Framework 2.0 CS\Patterns In Action\BusinessObjects\bin\Debug\BusinessObjects.pdb
+C:\Design Patterns\Design Pattern Framework 2.0 CS\Patterns In Action\BusinessObjects\obj\Debug\ResolveAssemblyReference.cache
+C:\Design Patterns\Design Pattern Framework 2.0 CS\Patterns In Action\BusinessObjects\obj\Debug\BusinessObjects.dll
+C:\Design Patterns\Design Pattern Framework 2.0 CS\Patterns In Action\BusinessObjects\obj\Debug\BusinessObjects.pdb
+C:\Patterns In Action\BusinessObjects\bin\Debug\BusinessObjects.dll
+C:\Patterns In Action\BusinessObjects\bin\Debug\BusinessObjects.pdb
+C:\Patterns In Action\BusinessObjects\obj\Debug\ResolveAssemblyReference.cache
+C:\Patterns In Action\BusinessObjects\obj\Debug\BusinessObjects.dll
+C:\Patterns In Action\BusinessObjects\obj\Debug\BusinessObjects.pdb

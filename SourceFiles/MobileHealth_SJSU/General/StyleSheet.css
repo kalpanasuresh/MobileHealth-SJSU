@@ -1,0 +1,113 @@
+﻿body, input, select, textarea, div, td
+{
+	font-size: 11px;
+	font-family: Tahoma, Verdana, Arial;
+}
+
+body.main
+{
+	background-color: #acc0e9;
+	margin: 0px;
+	overflow-y: auto;
+	padding: 0px;
+}
+
+div.error
+{
+	color: #ff0000;
+}
+
+div.noRecordsFound
+{
+	color: #9c9a9c;
+}
+
+div.header
+{
+	background-color: #ffffff;
+	border-bottom: solid 1px #6699cc;
+	padding-top: 5px;
+	padding-bottom: 5px;
+	width: 100%;
+}
+
+div.viewHeader
+{
+	padding-left: 5px;
+	padding-right: 5px;
+	padding-bottom: 10px;
+}
+
+table.breadCrumbs
+{
+	background-color: #8e9cbb;
+	border-bottom: solid 1px #6699cc;
+	color: #ffffff;
+	height: 23px;
+}
+
+td.breadCrumbs
+{
+	padding-left: 5px;
+	vertical-align: middle;
+	width: 100%;	
+}
+
+td.outerList
+{
+	padding: 5px;
+}
+
+td.innerList
+{
+	background-color: #ffffff;
+	border: solid 1px #7b9ebd;
+	padding: 5px;
+}
+
+td.form
+{
+	background-color: #eef0f6;
+	border: solid 1px #6489D4;
+	padding: 5px;
+}
+
+span.label
+{
+	padding-left: 10px;
+}
+
+br.hideBr
+{
+	display: none;
+}
+
+hr.thinBar
+{
+	color: #dedfe7;	
+}
+
+hr.formBar
+{
+	color: #000000;	
+}
+
+input
+{
+	background-color: #ffffff;
+}
+
+a.breadCrumbs
+{
+	color: #ffffff;
+}
+
+b.label
+{
+	padding-left: 3px;
+}
+
+a.label
+{
+	padding-left: 10px;
+}

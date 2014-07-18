@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<siteMap xmlns="http://schemas.microsoft.com/AspNet/SiteMap-File-1.0" >
+  
+    <siteMapNode title="PatientHome" description="Home" url="~/Patient/PatHome.aspx">
+      <siteMapNode title="Profile" description="My Profile"
+        url="~/Patient/Profile.aspx">
+        <siteMapNode title="SMS" description="Sending SMS"
+          url="~/General/SMS.aspx" />
+        <siteMapNode title="Appointment" description="Patient Apointment"
+          url="~/Appointment/PatAppt.aspx" />
+        <siteMapNode title="LinkDoctor" description="Add Doctor"
+         url="~/Patient/LinkDoc.aspx" />
+        <siteMapNode title="Consult" description="Patient Diagnosis"
+          url="~/Patient/Consult.aspx" />
+        <siteMapNode title="Mesaage" description="Patient Message Center"
+         url="~/Patient/MessageCenter.aspx" />
+        <siteMapNode title="HealthRecord" description="Patient Records"
+      url="~/Patient/Health.aspx" />
+        <siteMapNode title="FileRecord" description="Patient Records"
+      url="~/Patient/FileUpload.aspx" />
+        <siteMapNode title="LogOut" description="Go to Login Screen "
+     url="~/General/Login.aspx" />
+      </siteMapNode>
+   
+    </siteMapNode>
+  </siteMap>
+

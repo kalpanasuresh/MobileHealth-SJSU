@@ -1,0 +1,87 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Facade</name>
+    </assembly>
+    <members>
+        <member name="T:DoFactory.BusinessLayer.Facade.Utilities.PriceRangeItem">
+            <summary>
+            A PriceRange item used in the PriceRange list.  PriceRanges are used for 
+            searching the product catalog. 
+            </summary>
+        </member>
+        <member name="M:DoFactory.BusinessLayer.Facade.Utilities.PriceRangeItem.#ctor(System.Int32,System.Double,System.Double,System.String)">
+            <summary>
+            Constructor for PriceRangeItem.
+            </summary>
+            <param name="rangeId">Unique identifier for the price range.</param>
+            <param name="rangeFrom">Lower end of the price range.</param>
+            <param name="rangeThru">Higher end of the price range.</param>
+            <param name="rangeText">Easy-to-read form of the price range.</param>
+        </member>
+        <member name="P:DoFactory.BusinessLayer.Facade.Utilities.PriceRangeItem.RangeId">
+            <summary>
+            Gets the unique PriceRange identifier.
+            </summary>
+        </member>
+        <member name="P:DoFactory.BusinessLayer.Facade.Utilities.PriceRangeItem.RangeFrom">
+            <summary>
+            Gets the low end of the PriceRange item.
+            </summary>
+        </member>
+        <member name="P:DoFactory.BusinessLayer.Facade.Utilities.PriceRangeItem.RangeThru">
+            <summary>
+            Gets the high end of the PriceRange item.
+            </summary>
+        </member>
+        <member name="P:DoFactory.BusinessLayer.Facade.Utilities.PriceRangeItem.RangeText">
+            <summary>
+            Gets an easy-to-read form of the PriceRange item.
+            </summary>
+        </member>
+        <member name="T:DoFactory.BusinessLayer.Facade.Utilities.PriceRange">
+            <summary>
+            A utility class holding a list of price ranges. The price ranges are  
+            used in building search criteria for the product catalog. 
+            </summary>
+        </member>
+        <member name="M:DoFactory.BusinessLayer.Facade.Utilities.PriceRange.#cctor">
+            <summary>
+            Static constructor for PriceRange.
+            </summary>
+        </member>
+        <member name="P:DoFactory.BusinessLayer.Facade.Utilities.PriceRange.List">
+            <summary>
+            Gets the list of price ranges.
+            </summary>
+        </member>
+        <member name="M:Facade.DoctorFacade.GetDoctor(System.String)">
+            <summary>
+            Get a specific customer.
+            Uses the Proxy Design Pattern.
+            </summary>
+            <param name="customerId">Unique customer identifier.</param>
+            <returns>Requested customer.</returns>
+        </member>
+        <member name="M:Facade.DoctorFacade.AddDoctor(DoFactory.BusinessLayer.BusinessObjects.Doctor)">
+            <summary>
+            Adds a new customer
+            Uses the Decorator Design Pattern.
+            </summary>
+            <param name="customer">New Customer.</param>
+        </member>
+        <member name="M:Facade.PatientFacade.GetPatients">
+            <summary>
+            Gets a list of customers.
+            </summary>
+            <returns>List of Customers.</returns>
+        </member>
+        <member name="M:Facade.PatientFacade.GetPatients(System.String)">
+            <summary>
+            Gets a list of customers in a given sort order.
+            </summary>
+            <param name="sortExpression">Sort order of the list</param>
+            <returns>Sorted list of customers.</returns>
+        </member>
+    </members>
+</doc>

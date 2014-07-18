@@ -1,0 +1,14 @@
+bin\Debug\Facade.dll
+bin\Debug\Facade.pdb
+obj\Debug\ResolveAssemblyReference.cache
+obj\Debug\Facade.dll
+obj\Debug\Facade.pdb
+bin\Debug\BusinessObjects.dll
+bin\Debug\DataObjects.dll
+bin\Debug\DataObjects.pdb
+bin\Debug\BusinessObjects.pdb
+bin\Debug\BusinessObjects.xml
+bin\Debug\DataObjects.xml
+bin\Debug\Transactions.dll
+bin\Debug\Transactions.pdb
+bin\Debug\Transactions.xml
